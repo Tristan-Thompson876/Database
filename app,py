@@ -1,0 +1,58 @@
+from flask import Flask, request, make_response
+import mysql.connector
+
+app = Flask(__name__)
+
+@app.route()
+def Register_User():
+    return
+
+@app.route()
+def User_Login():
+    return
+
+@app.route()
+def create_Course():
+    return
+
+@app.route()
+def get_Course():
+    return
+
+@app.route()
+def Course_Register():
+    return
+
+@app.route()
+def get_CourseMembers():
+    return
+
+@app.route()
+def get_CalendarEvents():
+    return
+
+@app.route()
+def create_CalendarEvents():
+    return
+
+@app.route()
+def manage_Forums():
+    return
+
+@app.route()
+def manage_DiscussionThread():
+    return
+
+@app.route()
+def manage_CourseContent():
+    return
+
+@app.route()
+def manage_Assignments():
+    return
+
+@app.route()
+def make_Reports():
+    return
+    
+
