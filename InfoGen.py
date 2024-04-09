@@ -55,6 +55,8 @@ ccdict = {course_name: [course + str(random.randint(1000, 6501)) for _ in range(
 print(ccdict) # dictionary generating 200 courses with 10 different areas of study: 20 courses each from lvl 1 to lvl 6
 
 # Iterate over the student list and assign random courses ######## CONTINUE TO EDIT CODE FROM THIS LINE DOWN!!!!!
+# This part needs to be fixed though, it should pick between an amount of 4-6 courses from the course dict and basically add it to student info
+# Though id just deal with it on a StudentID/Course/Grades table.
 for s in student:
     random_course_keys = random.choices(Courses, k=random.randint(4, min(6, len(Courses))))
     random_courses = [random.choice(ccdict[key]) for key in random_course_keys]
