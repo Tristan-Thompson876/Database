@@ -62,3 +62,19 @@ for s in student:
 
 # Print the modified student list
 print(student)
+
+# Writing student data to CSV
+with open('students.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['First Name', 'Last Name', 'Email Address', 'User Name', 'Courses'])
+    writer.writerows(student)
+
+# Writing lecturer data to CSV
+with open('lecturers.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['Title', 'First Name', 'Last Name', 'Email Address', 'User Name'])
+    writer.writerows(lecturer)
+
+print("Data generated and written to CSV files: students.csv and lecturers.csv")
+
+####### TAKE NOTE: Code is still incomplete, but if currently ran, it would generate student and lecturer data and write them to two seperate csv files ######
