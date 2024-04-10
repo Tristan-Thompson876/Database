@@ -3,19 +3,38 @@ import mysql.connector
 
 app = Flask(__name__)
 
-@app.route()
+def ServerConnection(user = '', password = '', host = '', database = ''):
+    connection = None;
+    try:
+        connection = mysql.connector.connect(
+            user=user,
+            password=password,
+            host = host,
+            database= database
+        )
+        print("MySQL Database connection successful")
+    except Error as err:
+        print(f"Error: '{err}'")
+    return connection
+
+
+
+@app.route('/Register', methods=['PUT'])
 def Register_User():
+    ServerConnection
     return
 
-@app.route()
+@app.route('/Userlogin', methods=['GET'])
 def User_Login():
+    ServerConnection
     return
 
-@app.route()
+@app.route('/add_Course', methods=['POST'])
 def create_Course():
+    ServerConnection
     return
 
-@app.route()
+@app.route('/find_Course', methods=['GET'])
 def get_Course():
     return
 
@@ -55,4 +74,5 @@ def manage_Assignments():
 def make_Reports():
     return
     
-
+if __name__ == '__main__':
+    app.run(debug = True,port=3000)
