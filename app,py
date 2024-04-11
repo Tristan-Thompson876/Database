@@ -3,15 +3,17 @@ import mysql.connector
 
 app = Flask(__name__)
 
+db_config = {
+    'user': 'your_username',
+    'password': 'your_password',
+    'host': 'your_host',
+    'database': 'your_database'
+}
+
 def ServerConnection(user = '', password = '', host = '', database = ''):
-    connection = None;
+    connection = None
     try:
-        connection = mysql.connector.connect(
-            user=user,
-            password=password,
-            host = host,
-            database= database
-        )
+        connection = mysql.connector.connect(**config)
         print("MySQL Database connection successful")
     except Error as err:
         print(f"Error: '{err}'")
@@ -21,57 +23,67 @@ def ServerConnection(user = '', password = '', host = '', database = ''):
 
 @app.route('/Register', methods=['PUT'])
 def Register_User():
-    ServerConnection
+    connection = ServerConnection(db_config)
     return
 
 @app.route('/Userlogin', methods=['GET'])
 def User_Login():
-    ServerConnection
+    connection = ServerConnection(db_config)
     return
 
 @app.route('/add_Course', methods=['POST'])
 def create_Course():
-    ServerConnection
+    connection = ServerConnection(db_config)
     return
 
 @app.route('/find_Course', methods=['GET'])
 def get_Course():
+    connection = ServerConnection(db_config)
     return
 
 @app.route()
 def Course_Register():
+    connection = ServerConnection(db_config)
     return
 
 @app.route()
 def get_CourseMembers():
+    connection = ServerConnection(db_config)
     return
 
 @app.route()
 def get_CalendarEvents():
+    connection = ServerConnection(db_config)
     return
 
 @app.route()
 def create_CalendarEvents():
+    connection = ServerConnection(db_config)
     return
 
 @app.route()
 def manage_Forums():
+    connection = ServerConnection(db_config)
     return
 
 @app.route()
 def manage_DiscussionThread():
+    connection = ServerConnection(db_config)
     return
 
 @app.route()
 def manage_CourseContent():
+    connection = ServerConnection(db_config)
     return
 
 @app.route()
 def manage_Assignments():
+    connection = ServerConnection(db_config)
     return
 
 @app.route()
 def make_Reports():
+    connection = ServerConnection(db_config)
     return
     
 if __name__ == '__main__':
