@@ -21,7 +21,7 @@ class StudentProvider(BaseProvider):
 fake = Faker()
 fake.add_provider(StudentProvider)
 
-student = [fake.studentalia(index) for index in range(10)]
+student = [fake.studentalia(index) for index in range(100000)]
 
 print(student) # generated list of student particulars
 
