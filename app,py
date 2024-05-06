@@ -37,9 +37,27 @@ def create_Course():
     return
 
 @app.route('/find_Course', methods=['GET'])
-def get_Course():
-    connection = ServerConnection(db_config)
-    return
+def get_Course(cName):
+    try:
+        connection = ServerConnection(db_config)
+
+        cursor = connection.cursor()
+        cursor.execute(f"SELECT * FROM Course WHERE courseName={cName}")
+        row = cursor.fetchone()
+        course = {}
+        if row is not None:
+            CourseC, CourseName, StartDt, EndDt = row
+            course["Coursec"] = CourseC
+            course["CourseName"] = CourseName
+            course["StartDt"] = StartDt
+            course["EndDt"] = EndDt
+            cursor.close()
+            return make_response(course, 200)
+        else:
+            return make_response({'error': "Anerror has occured"}, 400)
+
+    except:
+        return make_response({'error': 'An error has occured'}, 400)
 
 @app.route()
 def Course_Register():
