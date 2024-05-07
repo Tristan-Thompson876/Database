@@ -47,14 +47,39 @@ def Register_User(uname, upass):
             connection.close() 
 
 @app.route('/Userlogin', methods=['GET'])
-def User_Login():
-    connection = ServerConnection(db_config)
-    return
+def User_Login(uname, upass):
+    try:
+        connection = ServerConnection(db_config)
+
+        cursor = connection.cursor()
+        cursor.excecute(f"SELECT * FROM Account WHERE Username={uname} AND password={upass}")
+        #make_response
+        cursor.close
+    except:
+        return make_response({'error': 'An error has occured'}, 400)
 
 @app.route('/add_Course', methods=['POST'])
 def create_Course():
-    connection = ServerConnection(db_config)
-    return
+    try:
+        connection = ServerConnection(db_config)
+        cursor = connection.cursor()
+
+        content = request.json
+        CourseC = content.get('CourseC')
+        CourseName = content.get('CourseName')
+        StartDt = content.get('StartDt')
+        EndDt = content.get('EndDt')
+
+        cursor.execute("INSERT INTO Course (CourseC, CourseName, StartDt, EndDt) VALUES (%s, %s, %s, %s)", (CourseC, CourseName, StartDt, EndDt))
+        connection.commit()
+        cursor.close()
+
+        return make_response({"success": "Course added successfully"}, 200)
+    except mysql.connector.Error as err:
+        return make_response({'error': f"An error occurred: {err}"}, 400)
+    finally:
+        if connection is not None:
+            connection.close()
 
 @app.route('/find_Course', methods=['GET'])
 def get_Course(cName):
@@ -125,9 +150,22 @@ def get_CalendarEvents():
         return make_response({'error': 'An error has occured'}, 400)
 
 @app.route()
-def create_CalendarEvents():
-    connection = ServerConnection(db_config)
-    return
+def create_CalendarEvents(CourseID, Title, SDate, EDate):
+    try:
+        connection = ServerConnection(db_config)
+        cursor = connection.cursor()
+
+        #content = request.jsonCourseID = content.get('CourseID')Title = content.get('Title')SDate = content.get('SDate')EDate = content.get('EDate')
+        cursor.execute("INSERT INTO Calendar (CourseID, Title, SDate, EDate) VALUES (%s, %s, %s, %s)", (CourseID, Title, SDate, EDate))
+        connection.commit()
+        cursor.close()
+
+        return make_response({"success": "Calendar event created successfully"}, 200)
+    except mysql.connector.Error as err:
+        return make_response({'error': f"An error occurred: {err}"}, 400)
+    finally:
+        if connection is not None:
+            connection.close()
 
 @app.route()
 def manage_Forums():
@@ -140,7 +178,7 @@ def manage_DiscussionThread():
     return
 
 @app.route()
-def manage_CourseContent():
+def manage_CourseContent(CourseC):
     connection = ServerConnection(db_config)
     return
 
