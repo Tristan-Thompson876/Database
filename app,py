@@ -66,13 +66,43 @@ def Course_Register():
 
 @app.route()
 def get_CourseMembers():
-    connection = ServerConnection(db_config)
-    return
+    try:
+        connection = ServerConnection(db_config)
+
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM Student WHERE STudentID IN (SELECT StudentID FROM Assignments WHERE CourseC=%s)", (CourseC))
+        students = cursor.fethchall()
+        cursor.close()
+        return jsonify(students), 200
+    except:
+        return jsonify({'error': f"An error has occurred: {err}"}), 500
+
+    finally:
+        if connection is not None:
+            connection.close()
 
 @app.route()
 def get_CalendarEvents():
-    connection = ServerConnection(db_config)
-    return
+    try:
+        connection = ServerConnection(db_config)
+        
+        cursor = connection.cursor()
+        cursor.excecute(f"SELECT * FROM Calendar")
+        row = cursor.fetchone
+        events = {}
+        if row is not None:
+            EventID, CourseID, Title, SDate, EDate = row
+            events['EventID'] = EventID
+            events['CourseID'] = CourseID
+            events['Title'] = Title
+            events['SDate'] = SDate
+            events['EDate'] = EDate
+            cursor.close()
+            return make_response(events, 200)
+        else:
+            return make_response({'error': 'Student not found'}, 400)
+    except:
+        return make_response({'error': 'An error has occured'}, 400)
 
 @app.route()
 def create_CalendarEvents():
