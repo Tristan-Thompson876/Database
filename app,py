@@ -22,9 +22,29 @@ def ServerConnection(user = '', password = '', host = '', database = ''):
 
 
 @app.route('/Register', methods=['PUT'])
-def Register_User():
-    connection = ServerConnection(db_config)
-    return
+def Register_User(uname, upass):
+    try:
+        connection = ServerConnection(db_config)
+        cursor = connection.cursor()
+
+        cursor.execute("SELECT MAX(UserID) FROM Account")
+        max_id = cursor.fetchone()[0]
+        new_id = max_id + 1
+
+        content = request.json
+        username = content.get('Username')
+        password = content.get('Password')
+
+        cursor.execute("INSERT INTO Account (UserID, Username, Password) VALUES (%s, %s, %s)", (new_id, username, password))
+        connection.commit()
+        cursor.close()
+
+        return make_response({"success": "User registered successfully", "UserID": new_id}, 202)
+    except mysql.connector.Error as err:
+        return make_response({'error': f"An error occurred: {err}"}, 400)
+    finally:
+        if connection is not None:
+            connection.close() 
 
 @app.route('/Userlogin', methods=['GET'])
 def User_Login():
