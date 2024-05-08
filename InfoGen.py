@@ -100,8 +100,11 @@ class CourseProvider(BaseProvider):
             course_data.append((course_code, course_name, department_name))
         return course_data
 
+# Instantiate CourseProvider
+course_provider = CourseProvider(fake)
+
 # Generate course data
-courses = fake.course_data()
+courses = course_provider.course_data()
 
 # For generating grades
 class GradeProvider(BaseProvider):
