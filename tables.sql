@@ -28,6 +28,11 @@ CREATE TABLE Course (
     StartDt VARCHAR(255),
     EndDt VARCHAR(255)
 );
+CREATE TABLE Enrollment (
+    CourseC INT PRIMARY KEY,
+    FOREIGN KEY (CourseC) REFERENCES Course(CourseC),
+    StudentID INT
+);
 
 CREATE TABLE Assignments (
     AssignmentID INT PRIMARY KEY,
@@ -61,7 +66,9 @@ CREATE TABLE DiscussionForum (
     Name VARCHAR(255)
 )
 
-CREATE TABLE DiscussionThread ( 
+CREATE TABLE DiscussionThread (
+    DiscussionID INT, 
+    FOREIGN KEY (DiscussionID) REFERENCES DiscussionForum(DiscussionID),
     ThreadID INT PRIMARY KEY,
     Title VARCHAR(255),
     Content VARCHAR(255)
