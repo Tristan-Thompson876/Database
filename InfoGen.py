@@ -112,7 +112,7 @@ class GradeProvider(BaseProvider):
     def grades(self):
         grades_data = {}
         for student_id, *_ in students:
-            num_categories = random.randint(2, min(len(ccdict), 6))  # Select 2 to 6 categories randomly
+            num_categories = random.randint(3, min(len(ccdict), 6))  # Select 2 to 6 categories randomly
             selected_categories = random.sample(CourseN, num_categories)
             selected_courses = [random.choice(ccdict[category]) for category in selected_categories]
             grades = [(course, random.randint(0, 100)) for course in selected_courses]
