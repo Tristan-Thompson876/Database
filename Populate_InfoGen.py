@@ -11,10 +11,10 @@ db = mysql.connector.connect(
 cursor = db.cursor()
 
 # Create database if not exists
-cursor.execute(f"CREATE DATABASE IF NOT EXISTS Schooly;")
+cursor.execute(f"CREATE DATABASE IF NOT EXISTS School_System;")
 
 # Switch to Schooly database
-cursor.execute(f"USE Schooly;")
+cursor.execute(f"USE School_System;")
 
 ######################################### STUDENT INFO ##################################################
 
