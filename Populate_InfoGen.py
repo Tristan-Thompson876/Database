@@ -3,18 +3,18 @@ import mysql.connector
 
 # Connect to MySQL database
 db = mysql.connector.connect(
-    host="localhost",
+    host="127.0.0.1",
     user="root",
-    password="password",
-    database="Schooly"
+    password="TrissSQL9845",
+    database="School_System"
 )
 cursor = db.cursor()
 
 # Create database if not exists
-cursor.execute(f"CREATE DATABASE IF NOT EXISTS Schooly")
+cursor.execute(f"CREATE DATABASE IF NOT EXISTS School_System")
 
 # Switch to Schooly database
-cursor.execute(f"USE Schooly")
+cursor.execute(f"USE School_System")
 
 ######################################### STUDENT INFO ##################################################
 
