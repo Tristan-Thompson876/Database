@@ -11,10 +11,10 @@ db = mysql.connector.connect(
 cursor = db.cursor()
 
 # Create database if not exists
-cursor.execute(f"CREATE DATABASE IF NOT EXISTS School_System")
+cursor.execute(f"CREATE DATABASE IF NOT EXISTS Schooly;")
 
 # Switch to Schooly database
-cursor.execute(f"USE School_System")
+cursor.execute(f"USE Schooly;")
 
 ######################################### STUDENT INFO ##################################################
 
@@ -24,7 +24,7 @@ with open('students.csv', 'r') as file:
     rows = [row for row in reader]
 
 # Create Students table
-cursor.execute(f"CREATE TABLE IF NOT EXISTS Students (PRIMARY KEY StudentID int, StudentName varchar(255), Email varchar(255), UserName varchar(255))")
+cursor.execute(f"CREATE TABLE IF NOT EXISTS Students (PRIMARY KEY StudentID int, StudentName varchar(255), Email varchar(255), UserName varchar(255));")
 
 # Commit changes
 db.commit()
@@ -46,7 +46,7 @@ with open('lecturers.csv', 'r') as file:
     rows = [row for row in reader]
 
 # Create Lecturers table
-cursor.execute(f"CREATE TABLE IF NOT EXISTS Lecturers (PRIMARY KEY LecturerID int, LecturerName varchar(255), Email varchar(255), UserName varchar(255), Department varchar(255))")
+cursor.execute(f"CREATE TABLE IF NOT EXISTS Lecturers (PRIMARY KEY LecturerID int, LecturerName varchar(255), Email varchar(255), UserName varchar(255), Department varchar(255));")
 
 # Commit changes
 db.commit()
@@ -69,7 +69,7 @@ with open('courses.csv', 'r') as file:
     rows = [row for row in reader]
 
 # Create Courses table
-cursor.execute(f"CREATE TABLE IF NOT EXISTS Courses (PRIMARY KEY Course Code varchar(255), CourseName varchar(255), Department varchar(255))")
+cursor.execute(f"CREATE TABLE IF NOT EXISTS Courses (PRIMARY KEY Course Code varchar(255), CourseName varchar(255), Department varchar(255));")
 
 # Commit changes
 db.commit()
@@ -92,7 +92,7 @@ with open('courses.csv', 'r') as file:
     rows = [row for row in reader]
 
 # Create Grades table
-cursor.execute(f"CREATE TABLE IF NOT EXISTS Grades (StudentID int, CourseCode varchar(255), Grade int)")
+cursor.execute(f"CREATE TABLE IF NOT EXISTS Grades (StudentID int, CourseCode varchar(255), Grade int);")
 
 # Commit changes
 db.commit()
