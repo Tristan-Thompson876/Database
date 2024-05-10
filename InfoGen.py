@@ -8,19 +8,24 @@ from datetime import datetime, timedelta
 fake = Faker()
 
 # For generating courses and course codes
-Courses = ['MATH', 'SOCI', 'LING', 'BIO', 'CHEM', 'PHYS', 'MEDI', 'PSYCH', 'ECON', 'ACCT', 'POLI']
-CourseN = ['Mathematics', 'Sociology', 'Linguistics', 'Biology', 'Chemistry', 'Physics', 'Medicine', 'Psychology', 'Economics', 'Accounting', 'Political Science']
+Courses = ['MATH', 'SOCI', 'LING', 'BIO', 'CHEM', 'PHYS', 'MEDI', 'PSYCH', 'ECON', 'ACCT']
+CourseN = ['Mathematics', 'Sociology', 'Linguistics', 'Biology', 'Chemistry', 'Physics', 'Medicine', 'Psychology', 'Economics', 'Accounting']
 
-CourseCode = []
+CourseCode = []  # Using a set to store unique course codes
 
 # Repeat the process for each item in Courses
 for course in Courses:
     # Repeat the process 20 times for each course
     for _ in range(20):
-        # Generate a random integer between 1000 and 3501
-        random_int = random.randint(1000, 3501)
-        # Concatenate the course code with the random integer and append to CourseCode
-        CourseCode.append(course + str(random_int))
+        while True:
+            # Generate a random integer between 1000 and 3501
+            random_int = random.randint(1000, 3501)
+            # Concatenate the course code with the random integer
+            code = course + str(random_int)
+            if code not in CourseCode:  # Check if code is unique
+                CourseCode.append(code)  # Add unique code to the set
+                break  # Break the loop if the code is unique
+            # If code is not unique, regenerate it
         
 # Create a dictionary where each item in CourseN is the key for every 20 items in CourseCode
 ccdict = {course_name: CourseCode[i*20:(i+1)*20] for i, course_name in enumerate(CourseN)}
@@ -30,7 +35,7 @@ class StudentProvider(BaseProvider):
     
     def studentalia(self, index):
         gender = self.random_element(["F", "M"])
-        student_id = str(index + 1).zfill(6)  # Convert index position to 6-digit format
+        student_id = str(index + 8000001).zfill(6)  # Adjusted to start from 8000001 and convert index position to 6-digit format
         first_name = fake.first_name_male() if gender == "M" else fake.first_name_female()
         last_name = fake.last_name()
         student_name = first_name + ' ' + last_name
@@ -146,6 +151,8 @@ class LectScheduleProvider(BaseProvider):
         for lecturer_id, _, _, _, department in lecturers:
             # Get all course codes for the lecturer's department
             dept_course_codes = [course[0] for course in courses if course[2] == department]
+            if not dept_course_codes:
+                continue  # Skip if no courses are available for the department
             # Shuffle the course codes
             random.shuffle(dept_course_codes)
             # Select a random number of distinct course codes between 1 and 5
@@ -183,31 +190,31 @@ try:
     # Writing student data to CSV
     with open('students.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Student ID', 'Student Name', 'Email Address', 'User Name'])
+        writer.writerow(['StudentID', 'StudentName', 'Email', 'UserName'])
         writer.writerows(students)
 
     # Writing lecturer data to CSV
     with open('lecturers.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Lecturer ID', 'Lecturer Name', 'Email Address', 'User Name', 'Department'])
+        writer.writerow(['LecturerID', 'LecturerName', 'Email', 'UserName', 'Department'])
         writer.writerows(lecturers)
 
     # Writing grades data to CSV
     with open('grades.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Student ID', 'Course Code', 'Grade'])
+        writer.writerow(['StudentID', 'CourseCode', 'Grade'])
         writer.writerows(grades_flat)
         
     # Writing course data to CSV
     with open('courses.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Course Code', 'Course Name', 'Department', 'Start Date', 'End Date'])
+        writer.writerow(['CourseCode', 'CourseName', 'Department', 'StartDate', 'EndDate'])
         writer.writerows(courses)
         
     # Writing schedule data to CSV    
     with open('lecturer_schedules.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Lecturer ID', 'Course Code', 'Department'])
+        writer.writerow(['LecturerID', 'CourseCode', 'Department'])
         writer.writerows(lecturer_schedules)
 
     print("Data generated and written to CSV files: students.csv, lecturers.csv, grades.csv, courses.csv and lecturer_schedules.csv")
