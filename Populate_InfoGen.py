@@ -22,6 +22,7 @@ try:
         database="School_System"
     )
     cursor = db.cursor()
+
     # Create Tables
     create_queries = [
         "CREATE TABLE IF NOT EXISTS Students (StudentID int PRIMARY KEY, StudentName varchar(255), Email varchar(255), UserName varchar(255))",
