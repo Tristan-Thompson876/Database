@@ -80,14 +80,14 @@ for row in rows:
     sql_inserts_c.append(f"INSERT INTO Courses (CourseCode, CourseName, Department) VALUES ({row['Course Code']}, '{row['Course Name']}', {row['Department']});")
 
 # Write SQL insert statements to a SQL file
-with open('populate_student_table.sql', 'w') as sql_file:
+with open('populate_courses_table.sql', 'w') as sql_file:
     sql_file.write('\n'.join(sql_inserts_c))
     
     
 ################################################ GRADE INFO ################################################################
 
 # Read and parse the Grades CSV file
-with open('courses.csv', 'r') as file:
+with open('grades.csv', 'r') as file:
     reader = csv.DictReader(file)
     rows = [row for row in reader]
 
@@ -103,5 +103,27 @@ for row in rows:
     sql_inserts_g.append(f"INSERT INTO Grades (StudentID, CourseCode, Grade) VALUES ({row['Student ID']}, '{row['Course Code']}', {row['Grade']});")
 
 # Write SQL insert statements to a SQL file
-with open('populate_student_table.sql', 'w') as sql_file:
+with open('populate_grades_table.sql', 'w') as sql_file:
     sql_file.write('\n'.join(sql_inserts_g))
+
+############################################### SCHEDULE INFO ###################################################################
+
+# Read and parse the Lecturer Schedule CSV file
+with open('lecturer_schedules.csv', 'r') as file:
+    reader = csv.DictReader(file)
+    rows = [row for row in reader]
+
+# Create Schedule table
+cursor.execute(f"CREATE TABLE IF NOT EXISTS Schedule (LecturerID int, CourseCode varchar(255), Department varchar(255));")
+
+# Commit changes
+db.commit()
+
+# Generate SQL insert statements
+sql_inserts_sched = []
+for row in rows:
+    sql_inserts_sched.append(f"INSERT INTO Schedule (LecturerID, CourseCode, Department) VALUES ({row['Lecturer ID']}, '{row['Course Code']}', {row['Department']});")
+
+# Write SQL insert statements to a SQL file
+with open('populate_schedule_table.sql', 'w') as sql_file:
+    sql_file.write('\n'.join(sql_inserts_sched))
