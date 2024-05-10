@@ -240,13 +240,13 @@ try:
     # Writing student data to CSV
     with open('students.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['StudentID', 'UserID', 'StudentName', 'Email', 'UserName'])
+        writer.writerow(['StudentID', 'UserID', 'StudentName', 'StudentEmail', 'UserName'])
         writer.writerows(students)
 
     # Writing lecturer data to CSV
     with open('lecturers.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['LecturerID', 'UserID', 'LecturerName', 'Email', 'UserName', 'Department'])
+        writer.writerow(['LecturerID', 'UserID', 'LecturerName', 'LecturerEmail', 'UserName', 'Department'])
         writer.writerows(lecturers)
 
     # Writing grades data to CSV
