@@ -1,21 +1,21 @@
 CREATE TABLE Account (
     UserID INT PRIMARY KEY,
-    UserName VARCHAR(50),
-    Password VARCHAR(50)
+    UserName VARCHAR(255),
+    Password VARCHAR(255)
 );
 
 CREATE TABLE Admin (
     AdminID INT PRIMARY KEY,
     UserID INT,
-    AdminName VARCHAR(50),
+    AdminName VARCHAR(255),
     FOREIGN KEY (UserID) REFERENCES Account(UserID)
 );
 
 CREATE TABLE Lecturer (
     LecturerID INT PRIMARY KEY,
     UserID INT,
-    LecturerName VARCHAR(50),
-    LecturerEmail VARCHAR(100),
+    LecturerName VARCHAR(255),
+    LecturerEmail VARCHAR(255),
     UserName VARCHAR(255),
     Department VARCHAR(255),
     FOREIGN KEY (UserID) REFERENCES Account(UserID)
@@ -24,15 +24,15 @@ CREATE TABLE Lecturer (
 CREATE TABLE Student (
     StudentID INT PRIMARY KEY,
     UserID INT,
-    StudentName VARCHAR(50),
-    StudentEmail VARCHAR(100),
+    StudentName VARCHAR(255),
+    StudentEmail VARCHAR(255),
     UserName VARCHAR(255),
     FOREIGN KEY (UserID) REFERENCES Account(UserID)
 );
 
 CREATE TABLE Course (
-    CourseCode VARCHAR(100)  PRIMARY KEY,
-    CourseName VARCHAR(100),
+    CourseCode VARCHAR(255)  PRIMARY KEY,
+    CourseName VARCHAR(255),
     Department VARCHAR(255),
     StartDate DATE,
     EndDate DATE,
@@ -40,7 +40,7 @@ CREATE TABLE Course (
 
 CREATE TABLE Grades (
     StudentID INT,
-    CourseCode VARCHAR(100),
+    CourseCode VARCHAR(255),
     Grade INT
 );
 
@@ -52,7 +52,7 @@ CREATE TABLE Schedule (
 
 CREATE TABLE StudentCourses (
     StudentID INT,
-    CourseCode VARCHAR(100) ,
+    CourseCode VARCHAR(255) ,
     PRIMARY KEY (StudentID, CourseCode),
     FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
     FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)

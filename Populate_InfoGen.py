@@ -38,8 +38,8 @@ try:
         cursor.execute(query)
 
     # Insert data into tables
-    insert_data_from_csv(cursor, 'students.csv', 'Student', ['StudentID', 'UserID', 'StudentName', 'Email', 'UserName'])
-    insert_data_from_csv(cursor, 'lecturers.csv', 'Lecturer', ['LecturerID', 'UserID', 'LecturerName', 'Email', 'UserName', 'Department'])
+    insert_data_from_csv(cursor, 'students.csv', 'Student', ['StudentID', 'UserID', 'StudentName', 'StudentEmail', 'UserName'])
+    insert_data_from_csv(cursor, 'lecturers.csv', 'Lecturer', ['LecturerID', 'UserID', 'LecturerName', 'LecturerEmail', 'UserName', 'Department'])
     insert_data_from_csv(cursor, 'courses.csv', 'Course', ['CourseCode', 'CourseName', 'Department', 'StartDate', 'EndDate'])
     insert_data_from_csv(cursor, 'grades.csv', 'Grades', ['StudentID', 'CourseCode', 'Grade'])
     insert_data_from_csv(cursor, 'lecturer_schedules.csv', 'Schedule', ['LecturerID', 'CourseCode', 'Department'])
