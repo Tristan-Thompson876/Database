@@ -25,13 +25,13 @@ try:
 
     # Create Tables
     create_queries = [
-        "CREATE TABLE IF NOT EXISTS Student (StudentID int PRIMARY KEY, UserID int, StudentName varchar(255), StudentEmail varchar(255), UserName varchar(255), FOREIGN KEY (UserID) REFERENCES Account(UserID))",
-        "CREATE TABLE IF NOT EXISTS Lecturer (LecturerID int PRIMARY KEY, UserID int, LecturerName varchar(255), LecturerEmail varchar(255), UserName varchar(255), Department varchar(255), FOREIGN KEY (UserID) REFERENCES Account(UserID))",
+        "CREATE TABLE IF NOT EXISTS Student (StudentID int PRIMARY KEY, UserID int, StudentName varchar(255), StudentEmail varchar(255), UserName varchar(255))",
+        "CREATE TABLE IF NOT EXISTS Lecturer (LecturerID int PRIMARY KEY, UserID int, LecturerName varchar(255), LecturerEmail varchar(255), UserName varchar(255), Department varchar(255))",
         "CREATE TABLE IF NOT EXISTS Course (CourseCode varchar(255) PRIMARY KEY, CourseName varchar(255), Department varchar(255), StartDate date, EndDate date)",
         "CREATE TABLE IF NOT EXISTS Grades (StudentID int, CourseCode varchar(255), Grade int)",
         "CREATE TABLE IF NOT EXISTS Schedule (LecturerID int, CourseCode varchar(255), Department varchar(255))",
         "CREATE TABLE IF NOT EXISTS Account (UserID int PRIMARY KEY, UserName varchar(255), Password varchar(255))",
-        "CREATE TABLE IF NOT EXISTS Admin (AdminID int PRIMARY KEY, UserID int, AdminName varchar(255), FOREIGN KEY (UserID) REFERENCES Account(UserID))"
+        "CREATE TABLE IF NOT EXISTS Admin (AdminID int PRIMARY KEY, UserID int, AdminName varchar(255))"
     ]
 
     for query in create_queries:
