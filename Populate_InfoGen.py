@@ -1,129 +1,55 @@
 import csv
 import mysql.connector
 
-# Connect to MySQL database
-db = mysql.connector.connect(
-    host="127.0.0.1",
-    user="root",
-    password="TrissSQL9845",
-    database="School_System"
-)
-cursor = db.cursor()
+def insert_data_from_csv(cursor, filename, tablename, columns):
+    with open(filename, 'r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            values = [row.get(col, None) for col in columns]
+            placeholders = ', '.join(['%s'] * len(values))
+            query = f"INSERT INTO {tablename} ({', '.join(columns)}) VALUES ({placeholders})"
+            try:
+                cursor.execute(query, values)
+            except mysql.connector.Error as err:
+                print(f"Error inserting data into {tablename}: {err}")
 
-# Create database if not exists
-cursor.execute(f"CREATE DATABASE IF NOT EXISTS School_System;")
+try:
+    # Connect to MySQL database
+    db = mysql.connector.connect(
+        host="127.0.0.1",
+        user="root",
+        password="TrissSQL9845",
+        database="School_System"
+    )
+    cursor = db.cursor()
+    # Create Tables
+    create_queries = [
+        "CREATE TABLE IF NOT EXISTS Students (StudentID int PRIMARY KEY, StudentName varchar(255), Email varchar(255), UserName varchar(255))",
+        "CREATE TABLE IF NOT EXISTS Lecturers (LecturerID int PRIMARY KEY, LecturerName varchar(255), Email varchar(255), UserName varchar(255), Department varchar(255))",
+        "CREATE TABLE IF NOT EXISTS Courses (CourseCode varchar(255) PRIMARY KEY, CourseName varchar(255), Department varchar(255), StartDate date, EndDate date)",
+        "CREATE TABLE IF NOT EXISTS Grades (StudentID int, CourseCode varchar(255), Grade int)",
+        "CREATE TABLE IF NOT EXISTS Schedule (LecturerID int, CourseCode varchar(255), Department varchar(255))"
+    ]
 
-# Switch to Schooly database
-cursor.execute(f"USE School_System;")
+    for query in create_queries:
+        cursor.execute(query)
 
-######################################### STUDENT INFO ##################################################
+    # Insert data into tables
+    insert_data_from_csv(cursor, 'students.csv', 'Students', ['StudentID', 'StudentName', 'Email', 'UserName'])
+    insert_data_from_csv(cursor, 'lecturers.csv', 'Lecturers', ['LecturerID', 'LecturerName', 'Email', 'UserName', 'Department'])
+    insert_data_from_csv(cursor, 'courses.csv', 'Courses', ['CourseCode', 'CourseName', 'Department', 'StartDate', 'EndDate'])
+    insert_data_from_csv(cursor, 'grades.csv', 'Grades', ['StudentID', 'CourseCode', 'Grade'])
+    insert_data_from_csv(cursor, 'lecturer_schedules.csv', 'Schedule', ['LecturerID', 'CourseCode', 'Department'])
 
-# Read and parse the Students CSV file
-with open('students.csv', 'r') as file:
-    reader = csv.DictReader(file)
-    rows = [row for row in reader]
+    # Commit changes
+    db.commit()
 
-# Create Students table
-cursor.execute(f"CREATE TABLE IF NOT EXISTS Students (PRIMARY KEY StudentID int, StudentName varchar(255), Email varchar(255), UserName varchar(255));")
+except mysql.connector.Error as err:
+    print("MySQL Error:", err)
 
-# Commit changes
-db.commit()
-
-# Generate SQL insert statements
-sql_inserts_s = []
-for row in rows:
-    sql_inserts_s.append(f"INSERT INTO Students (StudentID, StudentName, Email, UserName) VALUES ({row['Student ID']}, '{row['Student Name']}', {row['Email Address']}, {row['User Name']});")
-
-# Write SQL insert statements to a SQL file
-with open('populate_student_table.sql', 'w') as sql_file:
-    sql_file.write('\n'.join(sql_inserts_s))
-    
-################################## LECTURER INFO ##################################################
- 
-# Read and parse the Lecturers CSV file
-with open('lecturers.csv', 'r') as file:
-    reader = csv.DictReader(file)
-    rows = [row for row in reader]
-
-# Create Lecturers table
-cursor.execute(f"CREATE TABLE IF NOT EXISTS Lecturers (PRIMARY KEY LecturerID int, LecturerName varchar(255), Email varchar(255), UserName varchar(255), Department varchar(255));")
-
-# Commit changes
-db.commit()
-
-# Generate SQL insert statements
-sql_inserts_l = []
-for row in rows:
-    sql_inserts_l.append(f"INSERT INTO Lecturers (LecturerID, LecturerName, Email, UserName, Department) VALUES ({row['Lecturer ID']}, '{row['Lecturer Name']}', {row['Email Address']}, {row['User Name']}, {row['Department']});")
-
-# Write SQL insert statements to a SQL file
-with open('populate_lecturer_table.sql', 'w') as sql_file:
-    sql_file.write('\n'.join(sql_inserts_l))
-    
-    
-################################################# COURSE INFO ###############################################
-
-# Read and parse the Courses CSV file
-with open('courses.csv', 'r') as file:
-    reader = csv.DictReader(file)
-    rows = [row for row in reader]
-
-# Create Courses table
-cursor.execute(f"CREATE TABLE IF NOT EXISTS Courses (PRIMARY KEY Course Code varchar(255), CourseName varchar(255), Department varchar(255));")
-
-# Commit changes
-db.commit()
-
-# Generate SQL insert statements
-sql_inserts_c = []
-for row in rows:
-    sql_inserts_c.append(f"INSERT INTO Courses (CourseCode, CourseName, Department) VALUES ({row['Course Code']}, '{row['Course Name']}', {row['Department']});")
-
-# Write SQL insert statements to a SQL file
-with open('populate_courses_table.sql', 'w') as sql_file:
-    sql_file.write('\n'.join(sql_inserts_c))
-    
-    
-################################################ GRADE INFO ################################################################
-
-# Read and parse the Grades CSV file
-with open('grades.csv', 'r') as file:
-    reader = csv.DictReader(file)
-    rows = [row for row in reader]
-
-# Create Grades table
-cursor.execute(f"CREATE TABLE IF NOT EXISTS Grades (StudentID int, CourseCode varchar(255), Grade int);")
-
-# Commit changes
-db.commit()
-
-# Generate SQL insert statements
-sql_inserts_g = []
-for row in rows:
-    sql_inserts_g.append(f"INSERT INTO Grades (StudentID, CourseCode, Grade) VALUES ({row['Student ID']}, '{row['Course Code']}', {row['Grade']});")
-
-# Write SQL insert statements to a SQL file
-with open('populate_grades_table.sql', 'w') as sql_file:
-    sql_file.write('\n'.join(sql_inserts_g))
-
-############################################### SCHEDULE INFO ###################################################################
-
-# Read and parse the Lecturer Schedule CSV file
-with open('lecturer_schedules.csv', 'r') as file:
-    reader = csv.DictReader(file)
-    rows = [row for row in reader]
-
-# Create Schedule table
-cursor.execute(f"CREATE TABLE IF NOT EXISTS Schedule (LecturerID int, CourseCode varchar(255), Department varchar(255));")
-
-# Commit changes
-db.commit()
-
-# Generate SQL insert statements
-sql_inserts_sched = []
-for row in rows:
-    sql_inserts_sched.append(f"INSERT INTO Schedule (LecturerID, CourseCode, Department) VALUES ({row['Lecturer ID']}, '{row['Course Code']}', {row['Department']});")
-
-# Write SQL insert statements to a SQL file
-with open('populate_schedule_table.sql', 'w') as sql_file:
-    sql_file.write('\n'.join(sql_inserts_sched))
+finally:
+    # Close database connection
+    if cursor:
+        cursor.close()
+    if db:
+        db.close()
