@@ -3,6 +3,7 @@ import random
 from faker import Faker
 from faker.providers import BaseProvider
 from collections import defaultdict
+from datetime import datetime, timedelta
 
 fake = Faker()
 
@@ -97,7 +98,19 @@ class CourseProvider(BaseProvider):
             course_code = CourseCode[i]
             course_name = self.generated_course_names[i]
             department_name = CourseN[i // 20]
-            course_data.append((course_code, course_name, department_name))
+            # Determine start_date and end_date based on the condition
+            if i % 2 == 0:
+                start_date = datetime(2024, 9, 6)
+                end_date = datetime(2024, 12, 18)
+            else:
+                start_date = datetime(2024, 1, 17)
+                end_date = datetime(2024, 5, 4)
+            
+            # Format dates as strings without timestamps
+            start_date_str = start_date.strftime("%Y-%m-%d")
+            end_date_str = end_date.strftime("%Y-%m-%d")
+            
+            course_data.append((course_code, course_name, department_name, start_date_str, end_date_str))
         return course_data
 
 # Instantiate CourseProvider
@@ -118,6 +131,32 @@ class GradeProvider(BaseProvider):
             grades = [(course, random.randint(0, 100)) for course in selected_courses]
             grades_data[student_id] = grades
         return grades_data
+    
+class LectScheduleProvider(BaseProvider):
+    
+    def __init__(self, generator):
+        super().__init__(generator)
+        self.departments = defaultdict(list)
+        # Assign lecturers to departments
+        for lecturer, department in zip(range(len(CourseN) * 20), CourseN * 20):
+            self.departments[department].append(lecturer)
+
+    def lect_schedule(self):
+        lect_schedule_data = []
+        for lecturer_id, _, _, _, department in lecturers:
+            # Get all course codes for the lecturer's department
+            dept_course_codes = [course[0] for course in courses if course[2] == department]
+            # Shuffle the course codes
+            random.shuffle(dept_course_codes)
+            # Select a random number of distinct course codes between 1 and 5
+            num_courses = random.randint(1, min(5, len(dept_course_codes)))
+            # Select distinct course codes
+            selected_courses = dept_course_codes[:num_courses]
+            # Add lecturer ID and department to each selected course code
+            lecturer_schedule = [(lecturer_id, course_code, department) for course_code in selected_courses]
+            # Append to the schedule data
+            lect_schedule_data.extend(lecturer_schedule)
+        return lect_schedule_data
 
 fake.add_provider(StudentProvider)
 fake.add_provider(LecturerProvider)
@@ -125,7 +164,7 @@ fake.add_provider(GradeProvider)
 fake.add_provider(CourseProvider)
 
 # Generate student and lecturer data
-students = [fake.studentalia(index) for index in range(100000)]
+students = [fake.studentalia(index) for index in range(100)]
 lecturers = [fake.lectureralia(index) for index in range(200)]
 
 # Generate grades data
@@ -133,6 +172,12 @@ grades_data = fake.grades()
 
 # Flattening the grades data
 grades_flat = [(student_id, course, grade) for student_id, grades in grades_data.items() for course, grade in grades]
+
+# Instantiate LectScheduleProvider
+lect_schedule_provider = LectScheduleProvider(fake)
+
+# Generate lecturer schedules
+lecturer_schedules = lect_schedule_provider.lect_schedule()
 
 try:
     # Writing student data to CSV
@@ -150,16 +195,22 @@ try:
     # Writing grades data to CSV
     with open('grades.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Student ID', 'Course', 'Grade'])
+        writer.writerow(['Student ID', 'Course Code', 'Grade'])
         writer.writerows(grades_flat)
         
     # Writing course data to CSV
     with open('courses.csv', 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Course Code', 'Course Name', 'Department'])
+        writer.writerow(['Course Code', 'Course Name', 'Department', 'Start Date', 'End Date'])
         writer.writerows(courses)
+        
+    # Writing schedule data to CSV    
+    with open('lecturer_schedules.csv', 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['Lecturer ID', 'Course Code', 'Department'])
+        writer.writerows(lecturer_schedules)
 
-    print("Data generated and written to CSV files: students.csv, lecturers.csv, grades.csv, and courses.csv")
+    print("Data generated and written to CSV files: students.csv, lecturers.csv, grades.csv, courses.csv and lecturer_schedules.csv")
 
 except Exception as e:
     print(f"An error occurred: {e}")
