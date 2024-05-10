@@ -1,6 +1,6 @@
 CREATE TABLE Account (
     UserID INT PRIMARY KEY,
-    Username VARCHAR(50),
+    UserName VARCHAR(50),
     Password VARCHAR(50)
 );
 
@@ -16,6 +16,8 @@ CREATE TABLE Lecturer (
     UserID INT,
     LecturerName VARCHAR(50),
     LecturerEmail VARCHAR(100),
+    UserName VARCHAR(255),
+    Department VARCHAR(255),
     FOREIGN KEY (UserID) REFERENCES Account(UserID)
 );
 
@@ -24,49 +26,61 @@ CREATE TABLE Student (
     UserID INT,
     StudentName VARCHAR(50),
     StudentEmail VARCHAR(100),
+    UserName VARCHAR(255),
     FOREIGN KEY (UserID) REFERENCES Account(UserID)
 );
 
 CREATE TABLE Course (
-    CourseC VARCHAR(100)  PRIMARY KEY,
-    LecturerID INT,
+    CourseCode VARCHAR(100)  PRIMARY KEY,
     CourseName VARCHAR(100),
-    StartDt DATE,
-    EndDt DATE,
-    FOREIGN KEY (LecturerID) REFERENCES Lecturer(LecturerID)
+    Department VARCHAR(255),
+    StartDate DATE,
+    EndDate DATE,
+);
+
+CREATE TABLE Grades (
+    StudentID INT,
+    CourseCode VARCHAR(100),
+    Grade INT
+);
+
+CREATE TABLE Schedule (
+    LecturerID INT, 
+    CourseCode VARCHAR(255), 
+    Department VARCHAR(255)
 );
 
 CREATE TABLE StudentCourses (
     StudentID INT,
-    CourseC VARCHAR(100) ,
-    PRIMARY KEY (StudentID, CourseC),
+    CourseCode VARCHAR(100) ,
+    PRIMARY KEY (StudentID, CourseCode),
     FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
-    FOREIGN KEY (CourseC) REFERENCES Course(CourseC)
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)
 );
 
 CREATE TABLE Assignments (
     AssignmentID INT PRIMARY KEY,
-    CourseC VARCHAR(100),
+    CourseCode VARCHAR(100),
     Title VARCHAR(100),
     Description TEXT,
     Submission VARCHAR(100),
     DueDate DATE,
-    FOREIGN KEY (CourseC) REFERENCES Course(CourseC)
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)
 );
 
 CREATE TABLE Calendar (
     EventID INT PRIMARY KEY,
-    CourseC VARCHAR(100),
+    CourseCode VARCHAR(100),
     Title VARCHAR(100),
-	StartDt DATE,
-    EndDt DATE,
-    FOREIGN KEY (CourseC) REFERENCES Course(CourseC)
+	StartDate DATE,
+    EndDate DATE,
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)
 );
 
 CREATE TABLE CourseContent (
     CourseContentID INT PRIMARY KEY,
-    CourseC VARCHAR(100),
-    FOREIGN KEY (CourseC) REFERENCES Course(CourseC)
+    CourseCode VARCHAR(100),
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)
 );
 
 CREATE TABLE Section (
@@ -80,9 +94,9 @@ CREATE TABLE Section (
 
 CREATE TABLE DiscussionForum (
     DiscussionForumID INT PRIMARY KEY,
-    CourseC VARCHAR(100),
+    CourseCode VARCHAR(100),
     Name VARCHAR(100),
-    FOREIGN KEY (CourseC) REFERENCES Course(CourseC)
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)
 );
 
 CREATE TABLE DiscussionThread (
