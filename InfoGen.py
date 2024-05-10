@@ -164,7 +164,7 @@ fake.add_provider(GradeProvider)
 fake.add_provider(CourseProvider)
 
 # Generate student and lecturer data
-students = [fake.studentalia(index) for index in range(100)]
+students = [fake.studentalia(index) for index in range(100000)]
 lecturers = [fake.lectureralia(index) for index in range(200)]
 
 # Generate grades data
