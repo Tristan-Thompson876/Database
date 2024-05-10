@@ -46,17 +46,23 @@ def Register_User(uname, upass):
         if connection is not None:
             connection.close() 
 
-@app.route('/Userlogin', methods=['GET'])
-def User_Login(uname, upass):
-    try:
-        connection = ServerConnection(db_config)
+from flask import request
 
+@app.route('/Userlogin', methods=['GET'])
+def User_Login():
+    try:
+        uname = request.args.get('uname')
+        upass = request.args.get('password')
+
+        connection = ServerConnection(db_config)
         cursor = connection.cursor()
-        cursor.excecute(f"SELECT * FROM Account WHERE Username={uname} AND password={upass}")
-        #make_response
-        cursor.close
+        cursor.execute("SELECT * FROM Account WHERE Username=%s AND Password=%s", (uname, upass))
+
+        cursor.close()
+        connection.close()
     except:
-        return make_response({'error': 'An error has occured'}, 400)
+        return make_response({'error': 'An error has occurred'}, 400)
+
 
 @app.route('/add_Course', methods=['POST'])
 def create_Course():
@@ -81,52 +87,101 @@ def create_Course():
         if connection is not None:
             connection.close()
 
-@app.route('/find_Course', methods=['GET'])
+@app.route('/find_Course/<cName>', methods=['GET'])
 def get_Course(cName):
     try:
         connection = ServerConnection(db_config)
 
         cursor = connection.cursor()
-        cursor.execute(f"SELECT * FROM Course WHERE courseName={cName}")
+        cursor.execute("SELECT * FROM Course WHERE courseName=%s", (cName,))
         row = cursor.fetchone()
         course = {}
         if row is not None:
             CourseC, CourseName, StartDt, EndDt = row
-            course["Coursec"] = CourseC
+            course["CourseC"] = CourseC
             course["CourseName"] = CourseName
             course["StartDt"] = StartDt
             course["EndDt"] = EndDt
             cursor.close()
             return make_response(course, 200)
         else:
-            return make_response({'error': "Anerror has occured"}, 400)
+            return make_response({'error': 'Course not found'}, 404)
 
     except:
-        return make_response({'error': 'An error has occured'}, 400)
+        return make_response({'error': 'An error has occurred'}, 500)
 
-@app.route()
-def Course_Register():
-    connection = ServerConnection(db_config)
-    return
 
-@app.route()
-def get_CourseMembers():
+@app.route('/register_course', methods=['POST'])
+def register_course():
+    
+    data = request.json
+    student_id = data.get('student_id')
+    course_code = data.get('course_code')
+
+    if not is_valid_registration(student_id, course_code):
+        return jsonify({'message': 'Invalid registration data'}), 400
+
     try:
         connection = ServerConnection(db_config)
-
         cursor = connection.cursor()
-        cursor.execute("SELECT * FROM Student WHERE STudentID IN (SELECT StudentID FROM Assignments WHERE CourseC=%s)", (CourseC))
-        students = cursor.fethchall()
+        cursor.execute("INSERT INTO StudentCourses (StudentID, CourseCode) VALUES (%s, %s)", (student_id, course_code))
+        connection.commit()
+        cursor.close()
+        connection.close()
+        return jsonify({'message': 'Registration successful'}), 200
+    except Exception as e:
+        return jsonify({'message': 'Error registering for course', 'error': str(e)}), 500
+
+def is_valid_registration(student_id, course_code):
+    try:
+        connection = ServerConnection(db_config)
+        cursor = connection.cursor()
+
+        # Check if the student exists
+        cursor.execute("SELECT * FROM Student WHERE StudentID = %s", (student_id,))
+        student = cursor.fetchone()
+        if not student:
+            return False
+
+        # Check if the course exists
+        cursor.execute("SELECT * FROM Course WHERE CourseCode = %s", (course_code,))
+        course = cursor.fetchone()
+        if not course:
+            return False
+
+        # Check if the course has an assigned lecturer
+        # Assuming there's a table named 'LecturerAssignments' with columns CourseCode and LecturerID
+        cursor.execute("SELECT * FROM LecturerAssignments WHERE CourseCode = %s", (course_code,))
+        lecturer_assignment = cursor.fetchone()
+        if not lecturer_assignment:
+            return False
+
+        # If all checks pass, return True
+        return True
+    except Exception as e:
+        print("Error checking registration validity:", e)
+        return False
+    finally:
+        cursor.close()
+        connection.close()
+
+
+@app.route('/course-members/<course_code>', methods=['GET'])
+def get_CourseMembers(course_code):
+    try:
+        connection = ServerConnection(db_config)
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM Student WHERE StudentID IN (SELECT StudentID FROM Assignments WHERE CourseC=%s)", (course_code,))
+        students = cursor.fetchall()
         cursor.close()
         return jsonify(students), 200
-    except:
+    except mysql.connector.Error as err:
         return jsonify({'error': f"An error has occurred: {err}"}), 500
-
     finally:
         if connection is not None:
             connection.close()
 
-@app.route()
+@app.route('/calendar-events', methods=['GET'])
 def get_CalendarEvents():
     try:
         connection = ServerConnection(db_config)
@@ -149,7 +204,7 @@ def get_CalendarEvents():
     except:
         return make_response({'error': 'An error has occured'}, 400)
 
-@app.route()
+@app.route('/create_calendar-events', methods=['POST'])
 def create_CalendarEvents(CourseID, Title, SDate, EDate):
     try:
         connection = ServerConnection(db_config)
@@ -207,7 +262,7 @@ def manage_Forums():
                 connection.close()
 
 
-@app.route()
+@app.route('/manage_discussion_thread', methods=['GET', 'POST'])
 def manage_DiscussionThread():
     connection = ServerConnection(db_config)
     if connection is None:
@@ -308,7 +363,7 @@ def manage_CourseContent(CourseC):
             if connection.is_connected():
                 connection.close()
 
-@app.route()
+@app.route('/manage_assignments', methods=['POST', 'PUT'])
 def manage_Assignments():
     connection = ServerConnection(db_config)
     if connection is None:
@@ -354,7 +409,7 @@ def manage_Assignments():
             if connection.is_connected():
                 connection.close()
 
-@app.route()
+@app.route('/make-reports', methods=['GET'])
 def make_Reports():
     connection = ServerConnection(db_config)
     if connection is None:
