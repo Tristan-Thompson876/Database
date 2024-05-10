@@ -13,7 +13,7 @@ CourseN = ['Mathematics', 'Sociology', 'Linguistics', 'Biology', 'Chemistry', 'P
 
 CourseCode = []  # Using a set to store unique course codes
 
-# Repeat the process for each item in Courses
+# Repeat the process for each item in Courses.
 for course in Courses:
     # Repeat the process 20 times for each course
     for _ in range(20):
