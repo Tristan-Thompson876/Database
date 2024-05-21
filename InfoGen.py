@@ -41,7 +41,7 @@ class StudentProvider(BaseProvider):
         first_name = fake.first_name_male() if gender == "M" else fake.first_name_female()
         last_name = fake.last_name()
         student_name = first_name + ' ' + last_name
-        email_address = f"{first_name.lower()}.{last_name.lower()}@{'myschooly.com'}"
+        email_address = f"{first_name.lower()}{student_id}@gmail.com"
         user_name = f"{first_name}_{last_name}"
         
         return (student_id, user_id, student_name, email_address, user_name)
@@ -63,7 +63,7 @@ class LecturerProvider(BaseProvider):
         first_name = fake.first_name_male() if gender == "M" else fake.first_name_female()
         last_name = fake.last_name()
         lecturer_name = first_name + ' ' + last_name
-        email_address = f"{first_name.lower()}.{last_name.lower()}@{'user.myschooly.com'}"
+        email_address = f"{first_name.lower()}.{last_name.lower()}@user.myschooly.com"
         user_name = f"{first_name}_{last_name}"
         department = CourseN[index // 20]
         

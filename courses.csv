@@ -1,201 +1,201 @@
 CourseCode,CourseName,Department,StartDate,EndDate
-MATH3100,Contemporary Mathematics,Mathematics,2024-09-06,2024-12-18
-MATH1888,Environmental Mathematics,Mathematics,2024-01-17,2024-05-04
-MATH3049,Theoretical Mathematics,Mathematics,2024-09-06,2024-12-18
-MATH2202,Digital Mathematics,Mathematics,2024-01-17,2024-05-04
-MATH2537,Dynamic Mathematics,Mathematics,2024-09-06,2024-12-18
-MATH1651,Principles of Mathematics,Mathematics,2024-01-17,2024-05-04
-MATH1674,General Mathematics,Mathematics,2024-09-06,2024-12-18
-MATH1798,Professional Mathematics,Mathematics,2024-01-17,2024-05-04
-MATH3112,Applied Mathematics,Mathematics,2024-09-06,2024-12-18
-MATH1610,Cultural Mathematics,Mathematics,2024-01-17,2024-05-04
-MATH2726,Fundamentals of Mathematics,Mathematics,2024-09-06,2024-12-18
-MATH2827,Exploring Mathematics,Mathematics,2024-01-17,2024-05-04
-MATH1018,Advanced Mathematics,Mathematics,2024-09-06,2024-12-18
-MATH1211,Critical Mathematics,Mathematics,2024-01-17,2024-05-04
-MATH1553,Introduction to Mathematics,Mathematics,2024-09-06,2024-12-18
-MATH3286,Analysing Mathematics,Mathematics,2024-01-17,2024-05-04
-MATH2845,Interdisciplinary Mathematics,Mathematics,2024-09-06,2024-12-18
-MATH3082,Social Mathematics,Mathematics,2024-01-17,2024-05-04
-MATH2094,Ethical Mathematics,Mathematics,2024-09-06,2024-12-18
-MATH2689,Emerging Mathematics,Mathematics,2024-01-17,2024-05-04
-SOCI2127,Global Sociology,Sociology,2024-09-06,2024-12-18
-SOCI1648,Advanced Sociology,Sociology,2024-01-17,2024-05-04
-SOCI1672,Professional Sociology,Sociology,2024-09-06,2024-12-18
-SOCI3310,Fundamentals of Sociology,Sociology,2024-01-17,2024-05-04
-SOCI2962,General Sociology,Sociology,2024-09-06,2024-12-18
-SOCI1590,Applied Sociology,Sociology,2024-01-17,2024-05-04
-SOCI2459,Technical Sociology,Sociology,2024-09-06,2024-12-18
-SOCI1856,Emerging Sociology,Sociology,2024-01-17,2024-05-04
-SOCI2993,Interdisciplinary Sociology,Sociology,2024-09-06,2024-12-18
-SOCI2007,Exploring Sociology,Sociology,2024-01-17,2024-05-04
-SOCI1079,Introduction to Sociology,Sociology,2024-09-06,2024-12-18
-SOCI3412,Experimental Sociology,Sociology,2024-01-17,2024-05-04
-SOCI3241,Critical Sociology,Sociology,2024-09-06,2024-12-18
-SOCI3442,Contemporary Sociology,Sociology,2024-01-17,2024-05-04
-SOCI1126,Digital Sociology,Sociology,2024-09-06,2024-12-18
-SOCI1972,Principles of Sociology,Sociology,2024-01-17,2024-05-04
-SOCI1480,Ethical Sociology,Sociology,2024-09-06,2024-12-18
-SOCI1209,Social Sociology,Sociology,2024-01-17,2024-05-04
-SOCI2923,Dynamic Sociology,Sociology,2024-09-06,2024-12-18
-SOCI1531,Analysing Sociology,Sociology,2024-01-17,2024-05-04
-LING3281,Technical Linguistics,Linguistics,2024-09-06,2024-12-18
-LING2745,Environmental Linguistics,Linguistics,2024-01-17,2024-05-04
-LING2029,Fundamentals of Linguistics,Linguistics,2024-09-06,2024-12-18
-LING2956,Critical Linguistics,Linguistics,2024-01-17,2024-05-04
-LING2089,Cultural Linguistics,Linguistics,2024-09-06,2024-12-18
-LING2276,Analysing Linguistics,Linguistics,2024-01-17,2024-05-04
-LING1703,Theoretical Linguistics,Linguistics,2024-09-06,2024-12-18
-LING1176,Ethical Linguistics,Linguistics,2024-01-17,2024-05-04
-LING1460,Principles of Linguistics,Linguistics,2024-09-06,2024-12-18
-LING2495,Exploring Linguistics,Linguistics,2024-01-17,2024-05-04
-LING2143,Digital Linguistics,Linguistics,2024-09-06,2024-12-18
-LING1358,Applied Linguistics,Linguistics,2024-01-17,2024-05-04
-LING2890,Advanced Linguistics,Linguistics,2024-09-06,2024-12-18
-LING3179,Interdisciplinary Linguistics,Linguistics,2024-01-17,2024-05-04
-LING3089,Social Linguistics,Linguistics,2024-09-06,2024-12-18
-LING2653,Global Linguistics,Linguistics,2024-01-17,2024-05-04
-LING1529,Emerging Linguistics,Linguistics,2024-09-06,2024-12-18
-LING1812,Experimental Linguistics,Linguistics,2024-01-17,2024-05-04
-LING3453,Contemporary Linguistics,Linguistics,2024-09-06,2024-12-18
-LING1375,Dynamic Linguistics,Linguistics,2024-01-17,2024-05-04
-BIO1998,Contemporary Biology,Biology,2024-09-06,2024-12-18
-BIO3475,Technical Biology,Biology,2024-01-17,2024-05-04
-BIO1941,Interdisciplinary Biology,Biology,2024-09-06,2024-12-18
-BIO1387,Dynamic Biology,Biology,2024-01-17,2024-05-04
-BIO1617,Theoretical Biology,Biology,2024-09-06,2024-12-18
-BIO2408,Principles of Biology,Biology,2024-01-17,2024-05-04
-BIO1202,Critical Biology,Biology,2024-09-06,2024-12-18
-BIO2108,Professional Biology,Biology,2024-01-17,2024-05-04
-BIO1337,Emerging Biology,Biology,2024-09-06,2024-12-18
-BIO2039,Digital Biology,Biology,2024-01-17,2024-05-04
-BIO3482,Experimental Biology,Biology,2024-09-06,2024-12-18
-BIO1991,Ethical Biology,Biology,2024-01-17,2024-05-04
-BIO1242,Global Biology,Biology,2024-09-06,2024-12-18
-BIO1359,Introduction to Biology,Biology,2024-01-17,2024-05-04
-BIO2529,Analysing Biology,Biology,2024-09-06,2024-12-18
-BIO2306,Fundamentals of Biology,Biology,2024-01-17,2024-05-04
-BIO1793,Social Biology,Biology,2024-09-06,2024-12-18
-BIO1370,Advanced Biology,Biology,2024-01-17,2024-05-04
-BIO2746,Exploring Biology,Biology,2024-09-06,2024-12-18
-BIO1024,Environmental Biology,Biology,2024-01-17,2024-05-04
-CHEM1459,Dynamic Chemistry,Chemistry,2024-09-06,2024-12-18
-CHEM1145,General Chemistry,Chemistry,2024-01-17,2024-05-04
-CHEM1587,Digital Chemistry,Chemistry,2024-09-06,2024-12-18
-CHEM3481,Critical Chemistry,Chemistry,2024-01-17,2024-05-04
-CHEM2884,Contemporary Chemistry,Chemistry,2024-09-06,2024-12-18
-CHEM1727,Global Chemistry,Chemistry,2024-01-17,2024-05-04
-CHEM2546,Principles of Chemistry,Chemistry,2024-09-06,2024-12-18
-CHEM1069,Theoretical Chemistry,Chemistry,2024-01-17,2024-05-04
-CHEM3227,Introduction to Chemistry,Chemistry,2024-09-06,2024-12-18
-CHEM2886,Applied Chemistry,Chemistry,2024-01-17,2024-05-04
-CHEM1326,Environmental Chemistry,Chemistry,2024-09-06,2024-12-18
-CHEM2046,Experimental Chemistry,Chemistry,2024-01-17,2024-05-04
-CHEM2799,Professional Chemistry,Chemistry,2024-09-06,2024-12-18
-CHEM2456,Interdisciplinary Chemistry,Chemistry,2024-01-17,2024-05-04
-CHEM2497,Exploring Chemistry,Chemistry,2024-09-06,2024-12-18
-CHEM2393,Advanced Chemistry,Chemistry,2024-01-17,2024-05-04
-CHEM2452,Ethical Chemistry,Chemistry,2024-09-06,2024-12-18
-CHEM1970,Cultural Chemistry,Chemistry,2024-01-17,2024-05-04
-CHEM1011,Emerging Chemistry,Chemistry,2024-09-06,2024-12-18
-CHEM2455,Technical Chemistry,Chemistry,2024-01-17,2024-05-04
-PHYS3278,Environmental Physics,Physics,2024-09-06,2024-12-18
-PHYS3425,Professional Physics,Physics,2024-01-17,2024-05-04
-PHYS2530,General Physics,Physics,2024-09-06,2024-12-18
-PHYS2339,Emerging Physics,Physics,2024-01-17,2024-05-04
-PHYS3034,Critical Physics,Physics,2024-09-06,2024-12-18
-PHYS2187,Exploring Physics,Physics,2024-01-17,2024-05-04
-PHYS1891,Digital Physics,Physics,2024-09-06,2024-12-18
-PHYS1985,Introduction to Physics,Physics,2024-01-17,2024-05-04
-PHYS2271,Applied Physics,Physics,2024-09-06,2024-12-18
-PHYS2290,Advanced Physics,Physics,2024-01-17,2024-05-04
-PHYS3499,Fundamentals of Physics,Physics,2024-09-06,2024-12-18
-PHYS1680,Theoretical Physics,Physics,2024-01-17,2024-05-04
-PHYS1648,Technical Physics,Physics,2024-09-06,2024-12-18
-PHYS1997,Social Physics,Physics,2024-01-17,2024-05-04
-PHYS2859,Analysing Physics,Physics,2024-09-06,2024-12-18
-PHYS2864,Contemporary Physics,Physics,2024-01-17,2024-05-04
-PHYS3466,Experimental Physics,Physics,2024-09-06,2024-12-18
-PHYS1392,Global Physics,Physics,2024-01-17,2024-05-04
-PHYS2869,Dynamic Physics,Physics,2024-09-06,2024-12-18
-PHYS3164,Cultural Physics,Physics,2024-01-17,2024-05-04
-MEDI3109,Principles of Medicine,Medicine,2024-09-06,2024-12-18
-MEDI2506,Fundamentals of Medicine,Medicine,2024-01-17,2024-05-04
-MEDI1561,Theoretical Medicine,Medicine,2024-09-06,2024-12-18
-MEDI2501,Analysing Medicine,Medicine,2024-01-17,2024-05-04
-MEDI2832,Professional Medicine,Medicine,2024-09-06,2024-12-18
-MEDI2630,Advanced Medicine,Medicine,2024-01-17,2024-05-04
-MEDI1245,Experimental Medicine,Medicine,2024-09-06,2024-12-18
-MEDI2755,Environmental Medicine,Medicine,2024-01-17,2024-05-04
-MEDI1642,Digital Medicine,Medicine,2024-09-06,2024-12-18
-MEDI1717,Global Medicine,Medicine,2024-01-17,2024-05-04
-MEDI2584,Social Medicine,Medicine,2024-09-06,2024-12-18
-MEDI2043,Dynamic Medicine,Medicine,2024-01-17,2024-05-04
-MEDI2983,General Medicine,Medicine,2024-09-06,2024-12-18
-MEDI1142,Interdisciplinary Medicine,Medicine,2024-01-17,2024-05-04
-MEDI1554,Introduction to Medicine,Medicine,2024-09-06,2024-12-18
-MEDI2733,Critical Medicine,Medicine,2024-01-17,2024-05-04
-MEDI1275,Ethical Medicine,Medicine,2024-09-06,2024-12-18
-MEDI2855,Cultural Medicine,Medicine,2024-01-17,2024-05-04
-MEDI2440,Technical Medicine,Medicine,2024-09-06,2024-12-18
-MEDI3192,Exploring Medicine,Medicine,2024-01-17,2024-05-04
-PSYCH1210,Contemporary Psychology,Psychology,2024-09-06,2024-12-18
-PSYCH1065,Environmental Psychology,Psychology,2024-01-17,2024-05-04
-PSYCH1003,General Psychology,Psychology,2024-09-06,2024-12-18
-PSYCH3022,Interdisciplinary Psychology,Psychology,2024-01-17,2024-05-04
-PSYCH2692,Applied Psychology,Psychology,2024-09-06,2024-12-18
-PSYCH3034,Introduction to Psychology,Psychology,2024-01-17,2024-05-04
-PSYCH2716,Social Psychology,Psychology,2024-09-06,2024-12-18
-PSYCH3052,Global Psychology,Psychology,2024-01-17,2024-05-04
-PSYCH2118,Advanced Psychology,Psychology,2024-09-06,2024-12-18
-PSYCH2758,Dynamic Psychology,Psychology,2024-01-17,2024-05-04
-PSYCH3470,Technical Psychology,Psychology,2024-09-06,2024-12-18
-PSYCH2439,Principles of Psychology,Psychology,2024-01-17,2024-05-04
-PSYCH3129,Professional Psychology,Psychology,2024-09-06,2024-12-18
-PSYCH1100,Cultural Psychology,Psychology,2024-01-17,2024-05-04
-PSYCH1504,Ethical Psychology,Psychology,2024-09-06,2024-12-18
-PSYCH1464,Digital Psychology,Psychology,2024-01-17,2024-05-04
-PSYCH2694,Fundamentals of Psychology,Psychology,2024-09-06,2024-12-18
-PSYCH2101,Critical Psychology,Psychology,2024-01-17,2024-05-04
-PSYCH1257,Theoretical Psychology,Psychology,2024-09-06,2024-12-18
-PSYCH2777,Analysing Psychology,Psychology,2024-01-17,2024-05-04
-ECON2569,Technical Economics,Economics,2024-09-06,2024-12-18
-ECON2060,Principles of Economics,Economics,2024-01-17,2024-05-04
-ECON2036,Digital Economics,Economics,2024-09-06,2024-12-18
-ECON1308,Social Economics,Economics,2024-01-17,2024-05-04
-ECON1435,Professional Economics,Economics,2024-09-06,2024-12-18
-ECON3046,Theoretical Economics,Economics,2024-01-17,2024-05-04
-ECON1841,Contemporary Economics,Economics,2024-09-06,2024-12-18
-ECON1712,Fundamentals of Economics,Economics,2024-01-17,2024-05-04
-ECON1038,Experimental Economics,Economics,2024-09-06,2024-12-18
-ECON2868,Advanced Economics,Economics,2024-01-17,2024-05-04
-ECON2153,Dynamic Economics,Economics,2024-09-06,2024-12-18
-ECON2700,Interdisciplinary Economics,Economics,2024-01-17,2024-05-04
-ECON3191,Applied Economics,Economics,2024-09-06,2024-12-18
-ECON2229,Emerging Economics,Economics,2024-01-17,2024-05-04
-ECON3083,Analysing Economics,Economics,2024-09-06,2024-12-18
-ECON1775,Exploring Economics,Economics,2024-01-17,2024-05-04
-ECON2399,General Economics,Economics,2024-09-06,2024-12-18
-ECON1458,Critical Economics,Economics,2024-01-17,2024-05-04
-ECON1082,Cultural Economics,Economics,2024-09-06,2024-12-18
-ECON2003,Global Economics,Economics,2024-01-17,2024-05-04
-ACCT1431,General Accounting,Accounting,2024-09-06,2024-12-18
-ACCT2577,Environmental Accounting,Accounting,2024-01-17,2024-05-04
-ACCT2642,Exploring Accounting,Accounting,2024-09-06,2024-12-18
-ACCT2290,Professional Accounting,Accounting,2024-01-17,2024-05-04
-ACCT2608,Digital Accounting,Accounting,2024-09-06,2024-12-18
-ACCT2511,Theoretical Accounting,Accounting,2024-01-17,2024-05-04
-ACCT1893,Dynamic Accounting,Accounting,2024-09-06,2024-12-18
-ACCT2127,Analysing Accounting,Accounting,2024-01-17,2024-05-04
-ACCT3436,Ethical Accounting,Accounting,2024-09-06,2024-12-18
-ACCT1214,Social Accounting,Accounting,2024-01-17,2024-05-04
-ACCT1386,Interdisciplinary Accounting,Accounting,2024-09-06,2024-12-18
-ACCT1016,Critical Accounting,Accounting,2024-01-17,2024-05-04
-ACCT1697,Cultural Accounting,Accounting,2024-09-06,2024-12-18
-ACCT1166,Experimental Accounting,Accounting,2024-01-17,2024-05-04
-ACCT2909,Advanced Accounting,Accounting,2024-09-06,2024-12-18
-ACCT1704,Emerging Accounting,Accounting,2024-01-17,2024-05-04
-ACCT2498,Principles of Accounting,Accounting,2024-09-06,2024-12-18
-ACCT1157,Fundamentals of Accounting,Accounting,2024-01-17,2024-05-04
-ACCT2362,Applied Accounting,Accounting,2024-09-06,2024-12-18
-ACCT2840,Introduction to Accounting,Accounting,2024-01-17,2024-05-04
+MATH1495,Cultural Mathematics,Mathematics,2024-09-06,2024-12-18
+MATH2252,Introduction to Mathematics,Mathematics,2024-01-17,2024-05-04
+MATH3434,General Mathematics,Mathematics,2024-09-06,2024-12-18
+MATH3270,Environmental Mathematics,Mathematics,2024-01-17,2024-05-04
+MATH1743,Analysing Mathematics,Mathematics,2024-09-06,2024-12-18
+MATH1833,Applied Mathematics,Mathematics,2024-01-17,2024-05-04
+MATH1780,Technical Mathematics,Mathematics,2024-09-06,2024-12-18
+MATH1881,Theoretical Mathematics,Mathematics,2024-01-17,2024-05-04
+MATH2354,Critical Mathematics,Mathematics,2024-09-06,2024-12-18
+MATH3154,Exploring Mathematics,Mathematics,2024-01-17,2024-05-04
+MATH3380,Dynamic Mathematics,Mathematics,2024-09-06,2024-12-18
+MATH2691,Professional Mathematics,Mathematics,2024-01-17,2024-05-04
+MATH2852,Global Mathematics,Mathematics,2024-09-06,2024-12-18
+MATH3493,Contemporary Mathematics,Mathematics,2024-01-17,2024-05-04
+MATH3120,Interdisciplinary Mathematics,Mathematics,2024-09-06,2024-12-18
+MATH1947,Principles of Mathematics,Mathematics,2024-01-17,2024-05-04
+MATH1196,Fundamentals of Mathematics,Mathematics,2024-09-06,2024-12-18
+MATH2595,Ethical Mathematics,Mathematics,2024-01-17,2024-05-04
+MATH2389,Emerging Mathematics,Mathematics,2024-09-06,2024-12-18
+MATH2903,Digital Mathematics,Mathematics,2024-01-17,2024-05-04
+SOCI1586,Cultural Sociology,Sociology,2024-09-06,2024-12-18
+SOCI1070,Contemporary Sociology,Sociology,2024-01-17,2024-05-04
+SOCI1732,Environmental Sociology,Sociology,2024-09-06,2024-12-18
+SOCI1558,General Sociology,Sociology,2024-01-17,2024-05-04
+SOCI1093,Analysing Sociology,Sociology,2024-09-06,2024-12-18
+SOCI2343,Digital Sociology,Sociology,2024-01-17,2024-05-04
+SOCI1246,Introduction to Sociology,Sociology,2024-09-06,2024-12-18
+SOCI3267,Advanced Sociology,Sociology,2024-01-17,2024-05-04
+SOCI2516,Principles of Sociology,Sociology,2024-09-06,2024-12-18
+SOCI1856,Interdisciplinary Sociology,Sociology,2024-01-17,2024-05-04
+SOCI2941,Social Sociology,Sociology,2024-09-06,2024-12-18
+SOCI2457,Ethical Sociology,Sociology,2024-01-17,2024-05-04
+SOCI1581,Critical Sociology,Sociology,2024-09-06,2024-12-18
+SOCI2126,Emerging Sociology,Sociology,2024-01-17,2024-05-04
+SOCI2420,Professional Sociology,Sociology,2024-09-06,2024-12-18
+SOCI2851,Theoretical Sociology,Sociology,2024-01-17,2024-05-04
+SOCI1541,Technical Sociology,Sociology,2024-09-06,2024-12-18
+SOCI1021,Experimental Sociology,Sociology,2024-01-17,2024-05-04
+SOCI2219,Dynamic Sociology,Sociology,2024-09-06,2024-12-18
+SOCI2812,Applied Sociology,Sociology,2024-01-17,2024-05-04
+LING1422,Digital Linguistics,Linguistics,2024-09-06,2024-12-18
+LING3168,Cultural Linguistics,Linguistics,2024-01-17,2024-05-04
+LING3314,Fundamentals of Linguistics,Linguistics,2024-09-06,2024-12-18
+LING2945,Ethical Linguistics,Linguistics,2024-01-17,2024-05-04
+LING3398,Principles of Linguistics,Linguistics,2024-09-06,2024-12-18
+LING3055,Interdisciplinary Linguistics,Linguistics,2024-01-17,2024-05-04
+LING1131,Applied Linguistics,Linguistics,2024-09-06,2024-12-18
+LING2261,General Linguistics,Linguistics,2024-01-17,2024-05-04
+LING2676,Emerging Linguistics,Linguistics,2024-09-06,2024-12-18
+LING3214,Advanced Linguistics,Linguistics,2024-01-17,2024-05-04
+LING2773,Professional Linguistics,Linguistics,2024-09-06,2024-12-18
+LING2919,Exploring Linguistics,Linguistics,2024-01-17,2024-05-04
+LING2331,Dynamic Linguistics,Linguistics,2024-09-06,2024-12-18
+LING1295,Environmental Linguistics,Linguistics,2024-01-17,2024-05-04
+LING2277,Social Linguistics,Linguistics,2024-09-06,2024-12-18
+LING2236,Contemporary Linguistics,Linguistics,2024-01-17,2024-05-04
+LING1531,Introduction to Linguistics,Linguistics,2024-09-06,2024-12-18
+LING3300,Experimental Linguistics,Linguistics,2024-01-17,2024-05-04
+LING1081,Global Linguistics,Linguistics,2024-09-06,2024-12-18
+LING1291,Critical Linguistics,Linguistics,2024-01-17,2024-05-04
+BIO3245,Critical Biology,Biology,2024-09-06,2024-12-18
+BIO2621,Digital Biology,Biology,2024-01-17,2024-05-04
+BIO3196,Social Biology,Biology,2024-09-06,2024-12-18
+BIO2194,Interdisciplinary Biology,Biology,2024-01-17,2024-05-04
+BIO1704,Advanced Biology,Biology,2024-09-06,2024-12-18
+BIO1931,Cultural Biology,Biology,2024-01-17,2024-05-04
+BIO1664,General Biology,Biology,2024-09-06,2024-12-18
+BIO2027,Professional Biology,Biology,2024-01-17,2024-05-04
+BIO2592,Global Biology,Biology,2024-09-06,2024-12-18
+BIO1372,Exploring Biology,Biology,2024-01-17,2024-05-04
+BIO2462,Analysing Biology,Biology,2024-09-06,2024-12-18
+BIO1844,Fundamentals of Biology,Biology,2024-01-17,2024-05-04
+BIO1340,Principles of Biology,Biology,2024-09-06,2024-12-18
+BIO2911,Experimental Biology,Biology,2024-01-17,2024-05-04
+BIO1689,Introduction to Biology,Biology,2024-09-06,2024-12-18
+BIO1429,Applied Biology,Biology,2024-01-17,2024-05-04
+BIO2053,Environmental Biology,Biology,2024-09-06,2024-12-18
+BIO2287,Contemporary Biology,Biology,2024-01-17,2024-05-04
+BIO1174,Technical Biology,Biology,2024-09-06,2024-12-18
+BIO1808,Theoretical Biology,Biology,2024-01-17,2024-05-04
+CHEM1185,Experimental Chemistry,Chemistry,2024-09-06,2024-12-18
+CHEM3347,Analysing Chemistry,Chemistry,2024-01-17,2024-05-04
+CHEM2335,Exploring Chemistry,Chemistry,2024-09-06,2024-12-18
+CHEM2471,General Chemistry,Chemistry,2024-01-17,2024-05-04
+CHEM1257,Interdisciplinary Chemistry,Chemistry,2024-09-06,2024-12-18
+CHEM1113,Global Chemistry,Chemistry,2024-01-17,2024-05-04
+CHEM1261,Digital Chemistry,Chemistry,2024-09-06,2024-12-18
+CHEM1967,Environmental Chemistry,Chemistry,2024-01-17,2024-05-04
+CHEM1150,Ethical Chemistry,Chemistry,2024-09-06,2024-12-18
+CHEM2398,Advanced Chemistry,Chemistry,2024-01-17,2024-05-04
+CHEM1223,Contemporary Chemistry,Chemistry,2024-09-06,2024-12-18
+CHEM1607,Technical Chemistry,Chemistry,2024-01-17,2024-05-04
+CHEM2559,Professional Chemistry,Chemistry,2024-09-06,2024-12-18
+CHEM1105,Social Chemistry,Chemistry,2024-01-17,2024-05-04
+CHEM1633,Critical Chemistry,Chemistry,2024-09-06,2024-12-18
+CHEM1153,Fundamentals of Chemistry,Chemistry,2024-01-17,2024-05-04
+CHEM1955,Emerging Chemistry,Chemistry,2024-09-06,2024-12-18
+CHEM2688,Cultural Chemistry,Chemistry,2024-01-17,2024-05-04
+CHEM1005,Applied Chemistry,Chemistry,2024-09-06,2024-12-18
+CHEM2544,Introduction to Chemistry,Chemistry,2024-01-17,2024-05-04
+PHYS3375,Emerging Physics,Physics,2024-09-06,2024-12-18
+PHYS2010,General Physics,Physics,2024-01-17,2024-05-04
+PHYS2674,Exploring Physics,Physics,2024-09-06,2024-12-18
+PHYS3492,Advanced Physics,Physics,2024-01-17,2024-05-04
+PHYS2737,Applied Physics,Physics,2024-09-06,2024-12-18
+PHYS2664,Contemporary Physics,Physics,2024-01-17,2024-05-04
+PHYS1479,Interdisciplinary Physics,Physics,2024-09-06,2024-12-18
+PHYS2903,Global Physics,Physics,2024-01-17,2024-05-04
+PHYS1653,Dynamic Physics,Physics,2024-09-06,2024-12-18
+PHYS3047,Introduction to Physics,Physics,2024-01-17,2024-05-04
+PHYS1153,Critical Physics,Physics,2024-09-06,2024-12-18
+PHYS2030,Theoretical Physics,Physics,2024-01-17,2024-05-04
+PHYS2668,Digital Physics,Physics,2024-09-06,2024-12-18
+PHYS2178,Analysing Physics,Physics,2024-01-17,2024-05-04
+PHYS2697,Professional Physics,Physics,2024-09-06,2024-12-18
+PHYS2424,Social Physics,Physics,2024-01-17,2024-05-04
+PHYS2777,Principles of Physics,Physics,2024-09-06,2024-12-18
+PHYS3043,Environmental Physics,Physics,2024-01-17,2024-05-04
+PHYS2766,Ethical Physics,Physics,2024-09-06,2024-12-18
+PHYS1897,Cultural Physics,Physics,2024-01-17,2024-05-04
+MEDI1264,Cultural Medicine,Medicine,2024-09-06,2024-12-18
+MEDI2460,Critical Medicine,Medicine,2024-01-17,2024-05-04
+MEDI1681,Introduction to Medicine,Medicine,2024-09-06,2024-12-18
+MEDI2385,Interdisciplinary Medicine,Medicine,2024-01-17,2024-05-04
+MEDI3456,Advanced Medicine,Medicine,2024-09-06,2024-12-18
+MEDI2794,Experimental Medicine,Medicine,2024-01-17,2024-05-04
+MEDI2725,Principles of Medicine,Medicine,2024-09-06,2024-12-18
+MEDI2722,Fundamentals of Medicine,Medicine,2024-01-17,2024-05-04
+MEDI1714,Global Medicine,Medicine,2024-09-06,2024-12-18
+MEDI1907,Dynamic Medicine,Medicine,2024-01-17,2024-05-04
+MEDI1347,Environmental Medicine,Medicine,2024-09-06,2024-12-18
+MEDI2818,Contemporary Medicine,Medicine,2024-01-17,2024-05-04
+MEDI1663,Emerging Medicine,Medicine,2024-09-06,2024-12-18
+MEDI3423,Ethical Medicine,Medicine,2024-01-17,2024-05-04
+MEDI2950,Technical Medicine,Medicine,2024-09-06,2024-12-18
+MEDI2283,Digital Medicine,Medicine,2024-01-17,2024-05-04
+MEDI2585,Applied Medicine,Medicine,2024-09-06,2024-12-18
+MEDI2758,Social Medicine,Medicine,2024-01-17,2024-05-04
+MEDI1740,Analysing Medicine,Medicine,2024-09-06,2024-12-18
+MEDI2701,Theoretical Medicine,Medicine,2024-01-17,2024-05-04
+PSYCH3177,Cultural Psychology,Psychology,2024-09-06,2024-12-18
+PSYCH3496,Emerging Psychology,Psychology,2024-01-17,2024-05-04
+PSYCH2519,Professional Psychology,Psychology,2024-09-06,2024-12-18
+PSYCH3049,Advanced Psychology,Psychology,2024-01-17,2024-05-04
+PSYCH1222,Introduction to Psychology,Psychology,2024-09-06,2024-12-18
+PSYCH3194,Theoretical Psychology,Psychology,2024-01-17,2024-05-04
+PSYCH2163,Digital Psychology,Psychology,2024-09-06,2024-12-18
+PSYCH1831,Social Psychology,Psychology,2024-01-17,2024-05-04
+PSYCH3006,Environmental Psychology,Psychology,2024-09-06,2024-12-18
+PSYCH1810,General Psychology,Psychology,2024-01-17,2024-05-04
+PSYCH1994,Contemporary Psychology,Psychology,2024-09-06,2024-12-18
+PSYCH1177,Technical Psychology,Psychology,2024-01-17,2024-05-04
+PSYCH3410,Dynamic Psychology,Psychology,2024-09-06,2024-12-18
+PSYCH2044,Experimental Psychology,Psychology,2024-01-17,2024-05-04
+PSYCH2815,Applied Psychology,Psychology,2024-09-06,2024-12-18
+PSYCH3167,Critical Psychology,Psychology,2024-01-17,2024-05-04
+PSYCH3495,Exploring Psychology,Psychology,2024-09-06,2024-12-18
+PSYCH2987,Principles of Psychology,Psychology,2024-01-17,2024-05-04
+PSYCH1233,Fundamentals of Psychology,Psychology,2024-09-06,2024-12-18
+PSYCH1972,Ethical Psychology,Psychology,2024-01-17,2024-05-04
+ECON2508,General Economics,Economics,2024-09-06,2024-12-18
+ECON3115,Cultural Economics,Economics,2024-01-17,2024-05-04
+ECON2231,Interdisciplinary Economics,Economics,2024-09-06,2024-12-18
+ECON1651,Principles of Economics,Economics,2024-01-17,2024-05-04
+ECON2084,Professional Economics,Economics,2024-09-06,2024-12-18
+ECON1815,Experimental Economics,Economics,2024-01-17,2024-05-04
+ECON2359,Social Economics,Economics,2024-09-06,2024-12-18
+ECON1644,Dynamic Economics,Economics,2024-01-17,2024-05-04
+ECON1748,Global Economics,Economics,2024-09-06,2024-12-18
+ECON1418,Emerging Economics,Economics,2024-01-17,2024-05-04
+ECON2348,Exploring Economics,Economics,2024-09-06,2024-12-18
+ECON1316,Advanced Economics,Economics,2024-01-17,2024-05-04
+ECON1904,Technical Economics,Economics,2024-09-06,2024-12-18
+ECON1020,Digital Economics,Economics,2024-01-17,2024-05-04
+ECON3106,Environmental Economics,Economics,2024-09-06,2024-12-18
+ECON2750,Fundamentals of Economics,Economics,2024-01-17,2024-05-04
+ECON1329,Ethical Economics,Economics,2024-09-06,2024-12-18
+ECON2112,Contemporary Economics,Economics,2024-01-17,2024-05-04
+ECON1011,Applied Economics,Economics,2024-09-06,2024-12-18
+ECON2042,Introduction to Economics,Economics,2024-01-17,2024-05-04
+ACCT2285,Dynamic Accounting,Accounting,2024-09-06,2024-12-18
+ACCT2543,Contemporary Accounting,Accounting,2024-01-17,2024-05-04
+ACCT1050,Ethical Accounting,Accounting,2024-09-06,2024-12-18
+ACCT2276,Experimental Accounting,Accounting,2024-01-17,2024-05-04
+ACCT2641,General Accounting,Accounting,2024-09-06,2024-12-18
+ACCT1290,Professional Accounting,Accounting,2024-01-17,2024-05-04
+ACCT1350,Advanced Accounting,Accounting,2024-09-06,2024-12-18
+ACCT1504,Fundamentals of Accounting,Accounting,2024-01-17,2024-05-04
+ACCT3478,Digital Accounting,Accounting,2024-09-06,2024-12-18
+ACCT2736,Introduction to Accounting,Accounting,2024-01-17,2024-05-04
+ACCT3370,Technical Accounting,Accounting,2024-09-06,2024-12-18
+ACCT2296,Critical Accounting,Accounting,2024-01-17,2024-05-04
+ACCT1054,Exploring Accounting,Accounting,2024-09-06,2024-12-18
+ACCT2155,Applied Accounting,Accounting,2024-01-17,2024-05-04
+ACCT2409,Social Accounting,Accounting,2024-09-06,2024-12-18
+ACCT3117,Environmental Accounting,Accounting,2024-01-17,2024-05-04
+ACCT1265,Global Accounting,Accounting,2024-09-06,2024-12-18
+ACCT2505,Interdisciplinary Accounting,Accounting,2024-01-17,2024-05-04
+ACCT3181,Analysing Accounting,Accounting,2024-09-06,2024-12-18
+ACCT1385,Theoretical Accounting,Accounting,2024-01-17,2024-05-04

@@ -29,10 +29,14 @@ def create_database_and_tables():
                         cursor.execute(command)
             connection.commit()
             cursor.close()
+            connection.close()
             print("Tables created successfully")
             
     except Error as e:
         print(f"Error creating database and tables: {e}")
+    finally:
+        if connection.is_connected():
+            connection.close()
 
 if __name__ == '__main__':
     create_database_and_tables()

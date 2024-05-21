@@ -1,5 +1,6 @@
 import csv
 import mysql.connector
+from mysql.connector import Error
 
 def insert_data_from_csv(cursor, filename, tablename, columns):
     with open(filename, 'r') as file:
@@ -28,10 +29,10 @@ try:
         "CREATE TABLE IF NOT EXISTS Student (StudentID int PRIMARY KEY, UserID int, StudentName varchar(255), StudentEmail varchar(255), UserName varchar(255))",
         "CREATE TABLE IF NOT EXISTS Lecturer (LecturerID int PRIMARY KEY, UserID int, LecturerName varchar(255), LecturerEmail varchar(255), UserName varchar(255), Department varchar(255))",
         "CREATE TABLE IF NOT EXISTS Course (CourseCode varchar(255) PRIMARY KEY, CourseName varchar(255), Department varchar(255), StartDate date, EndDate date)",
-        "CREATE TABLE IF NOT EXISTS Grades (StudentID int, CourseCode varchar(255), Grade int)",
-        "CREATE TABLE IF NOT EXISTS Schedule (LecturerID int, CourseCode varchar(255), Department varchar(255))",
+        "CREATE TABLE IF NOT EXISTS Grades (StudentID int, CourseCode varchar(255), Grade int, PRIMARY KEY (StudentID, CourseCode), FOREIGN KEY (StudentID) REFERENCES Student(StudentID), FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode))",
+        "CREATE TABLE IF NOT EXISTS Schedule (LecturerID int, CourseCode varchar(255), Department varchar(255), PRIMARY KEY (LecturerID, CourseCode), FOREIGN KEY (LecturerID) REFERENCES Lecturer(LecturerID), FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode))",
         "CREATE TABLE IF NOT EXISTS Account (UserID int PRIMARY KEY, UserName varchar(255), Password varchar(255))",
-        "CREATE TABLE IF NOT EXISTS Admin (AdminID int PRIMARY KEY, UserID int, AdminName varchar(255))"
+        "CREATE TABLE IF NOT EXISTS Admin (AdminID int PRIMARY KEY, UserID int, AdminName varchar(255), FOREIGN KEY (UserID) REFERENCES Account(UserID))"
     ]
 
     for query in create_queries:

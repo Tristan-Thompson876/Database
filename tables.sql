@@ -8,6 +8,32 @@ SELECT * FROM schedule;
 SELECT * FROM accounts;
 SELECT * FROM admins;
 
+CREATE TABLE IF NOT EXISTS Student (
+    StudentID int PRIMARY KEY, 
+    UserID int, 
+    StudentName varchar(255), 
+    StudentEmail varchar(255), 
+    UserName varchar(255)
+);
+
+CREATE TABLE Course (
+    CourseCode VARCHAR(255) NOT NULL,
+    CourseName VARCHAR(255) NOT NULL,
+    StartDt DATE NOT NULL,
+    EndDt DATE NOT NULL,
+    PRIMARY KEY (CourseC)
+);
+
+
+CREATE TABLE IF NOT EXISTS Lecturer (
+    LecturerID int PRIMARY KEY, 
+    UserID int, 
+    LecturerName varchar(255), 
+    LecturerEmail varchar(255), 
+    UserName varchar(255), 
+    Department varchar(255)
+);
+
 CREATE TABLE StudentCourses (
     StudentID INT,
     CourseCode VARCHAR(255) ,
