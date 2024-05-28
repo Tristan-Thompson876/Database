@@ -16,6 +16,12 @@ CREATE TABLE IF NOT EXISTS Student (
     UserName varchar(255)
 );
 
+CREATE TABLE IF NOT EXISTS Enrol (
+    CoursCode varchar(255) NOT NULL,
+    StudentID int,
+
+)
+
 CREATE TABLE Course (
     CourseCode VARCHAR(255) NOT NULL,
     CourseName VARCHAR(255) NOT NULL,
@@ -34,11 +40,17 @@ CREATE TABLE IF NOT EXISTS Lecturer (
     Department varchar(255)
 );
 
-CREATE TABLE StudentCourses (
+CREATE TABLE Enrol (
     StudentID INT,
     CourseCode VARCHAR(255) ,
-    PRIMARY KEY (StudentID, CourseCode)
+    PRIMARY KEY (StudentID)
 );
+
+Create Table Assignedcourse (
+    CourseCode varchar(255),
+    LecturerID int,
+    PRIMARY KEY (LecturerID)
+)
 
 CREATE TABLE Assignments (
     AssignmentID INT PRIMARY KEY,
