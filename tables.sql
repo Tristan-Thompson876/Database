@@ -1,35 +1,43 @@
-create database School_System;
 USE School_System;
-SELECT * FROM students;
-SELECT * FROM lecturers;
-SELECT * FROM grades;
-SELECT * FROM courses;
-SELECT * FROM schedule;
-SELECT * FROM accounts;
-SELECT * FROM admins;
+
+CREATE TABLE IF NOT EXISTS Account (
+    UserID INT PRIMARY KEY,
+    UserName VARCHAR(255) NOT NULL,
+    Password VARCHAR(255)
+);
 
 CREATE TABLE IF NOT EXISTS Student (
     StudentID int PRIMARY KEY, 
     UserID int, 
     StudentName varchar(255), 
     StudentEmail varchar(255), 
-    UserName varchar(255)
+    UserName varchar(255),
+    FOREIGN KEY (UserID) REFERENCES Account(UserID)
+);
+
+CREATE TABLE IF NOT EXISTS Admin (
+    AdminID INT PRIMARY KEY,
+    UserID INT,
+    AdminName VARCHAR(255),
+    FOREIGN KEY (UserID) REFERENCES Account(UserID)
+);
+
+CREATE TABLE IF NOT EXISTS Course (
+    CourseCode VARCHAR(255) NOT NULL,
+    CourseName VARCHAR(255) NOT NULL,
+    Department VARCHAR(255), -- Added Department column
+    StartDate DATE NOT NULL,
+    EndDate DATE NOT NULL,
+    PRIMARY KEY (CourseCode)
 );
 
 CREATE TABLE IF NOT EXISTS Enrol (
-    CoursCode varchar(255) NOT NULL,
-    StudentID int,
-
-)
-
-CREATE TABLE Course (
-    CourseCode VARCHAR(255) NOT NULL,
-    CourseName VARCHAR(255) NOT NULL,
-    StartDt DATE NOT NULL,
-    EndDt DATE NOT NULL,
-    PRIMARY KEY (CourseC)
+    CourseCode varchar(255) NOT NULL,
+    StudentID int NOT NULL,
+    PRIMARY KEY (CourseCode, StudentID),
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode),
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
 );
-
 
 CREATE TABLE IF NOT EXISTS Lecturer (
     LecturerID int PRIMARY KEY, 
@@ -37,77 +45,92 @@ CREATE TABLE IF NOT EXISTS Lecturer (
     LecturerName varchar(255), 
     LecturerEmail varchar(255), 
     UserName varchar(255), 
-    Department varchar(255)
+    Department varchar(255),
+    FOREIGN KEY (UserID) REFERENCES Account(UserID)
 );
 
-CREATE TABLE Enrol (
-    StudentID INT,
-    CourseCode VARCHAR(255) ,
-    PRIMARY KEY (StudentID)
-);
-
-Create Table Assignedcourse (
+CREATE TABLE IF NOT EXISTS Assignedcourse (
     CourseCode varchar(255),
     LecturerID int,
-    PRIMARY KEY (LecturerID)
-)
+    PRIMARY KEY (CourseCode, LecturerID),
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode),
+    FOREIGN KEY (LecturerID) REFERENCES Lecturer(LecturerID)
+);
 
-CREATE TABLE Assignments (
+CREATE TABLE IF NOT EXISTS Assignments (
     AssignmentID INT PRIMARY KEY,
     CourseCode VARCHAR(255),
     Title VARCHAR(100),
     Description TEXT,
     Submission VARCHAR(100),
-    DueDate DATE
+    DueDate DATE,
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)
 );
 
-CREATE TABLE Calendar (
+CREATE TABLE IF NOT EXISTS Calendar (
     EventID INT PRIMARY KEY,
     CourseCode VARCHAR(255),
     Title VARCHAR(100),
-	StartDate DATE,
-    EndDate DATE
+    StartDate DATE,
+    EndDate DATE,
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)
 );
 
-CREATE TABLE CourseContent (
+CREATE TABLE IF NOT EXISTS CourseContent (
     CourseContentID INT PRIMARY KEY,
-    CourseCode VARCHAR(255)
+    CourseCode VARCHAR(255),
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)
 );
 
-CREATE TABLE Section (
-    SectionID INT,
+CREATE TABLE IF NOT EXISTS Section (
+    SectionID INT PRIMARY KEY,
     CourseContentID INT,
     ContentType ENUM('links', 'files', 'slides'),
     ContentPath VARCHAR(255),
-    PRIMARY KEY (SectionID)
+    FOREIGN KEY (CourseContentID) REFERENCES CourseContent(CourseContentID)
 );
 
-CREATE TABLE DiscussionForum (
+CREATE TABLE IF NOT EXISTS DiscussionForum (
     DiscussionForumID INT PRIMARY KEY,
     CourseCode VARCHAR(255),
-    Name VARCHAR(100)
+    Name VARCHAR(100),
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)
 );
 
-CREATE TABLE DiscussionThread (
+CREATE TABLE IF NOT EXISTS DiscussionThread (
     DiscussionThreadID INT PRIMARY KEY,
     DiscussionForumID INT,
     StudentID INT,
     Title VARCHAR(100),
-    Content TEXT
+    Content TEXT,
+    FOREIGN KEY (DiscussionForumID) REFERENCES DiscussionForum(DiscussionForumID),
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID)
 );
 
-
-CREATE TABLE DiscussionThreadReply (
+CREATE TABLE IF NOT EXISTS DiscussionThreadReply (
     DiscussionThreadReplyID INT PRIMARY KEY,
     StudentID INT,
     DiscussionThreadID INT,
-    Content TEXT
+    Content TEXT,
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    FOREIGN KEY (DiscussionThreadID) REFERENCES DiscussionThread(DiscussionThreadID)
 );
 
-CREATE TABLE AssignmentSubmission (
+CREATE TABLE IF NOT EXISTS AssignmentSubmission (
     StudentID INT,
     AssignmentID INT,
     SubmissionDate DATE,
     Grade DECIMAL(5,2),
-    PRIMARY KEY (StudentID, AssignmentID)
+    PRIMARY KEY (StudentID, AssignmentID),
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    FOREIGN KEY (AssignmentID) REFERENCES Assignments(AssignmentID)
+);
+
+CREATE TABLE IF NOT EXISTS Grades (
+    StudentID INT,
+    CourseCode VARCHAR(255),
+    Grade DECIMAL(5,2),
+    PRIMARY KEY (StudentID, CourseCode),
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    FOREIGN KEY (CourseCode) REFERENCES Course(CourseCode)
 );
