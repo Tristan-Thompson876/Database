@@ -7,3 +7,7 @@
 ##### lorem
 ##### lorem
 ##### lorem
+
+### How to run program:
+### source myenv/bin/activate
+### then run app.py
