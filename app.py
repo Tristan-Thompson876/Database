@@ -1,15 +1,40 @@
-from flask import Flask, request, make_response, jsonify
+from flask import Flask, request, make_response, jsonify, render_template
 import mysql.connector
+from flask_cors import CORS
 from mysql.connector import Error
+from werkzeug.security import generate_password_hash, check_password_hash
+import logging
 
 app = Flask(__name__)
 
+CORS(app)
+
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+
 db_config = {
     'user': 'root',
-    'password': 'TrissSQL9845',
+    'password': 'Juniorb77ttriss',
     'host': '127.0.0.1',
     'database': 'School_System'
 }
+
+def test_connection():
+    try:
+        connection = mysql.connector.connect(**db_config)
+        if connection.is_connected():
+            print("MySQL Database connection successful")
+    except Error as e:
+        print(f"Error connecting to MySQL: {e}")
+    finally:
+        if connection:
+            connection.close()
+
+test_connection()
+
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 def ServerConnection():
     connection = None
@@ -52,18 +77,24 @@ def User_Login():
         upass = request.args.get('password')
 
         connection = ServerConnection()
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM Account WHERE Username=%s AND Password=%s", (uname, upass))
+        if connection is None:
+            return make_response({"error": "Database connection failed"}, 500)
 
+        cursor = connection.cursor()
+        cursor.execute("SELECT * FROM Account WHERE Username=%s", (uname,))
         user = cursor.fetchone()
         cursor.close()
-        connection.close()
-        if user:
+
+        if user and check_password_hash(user[2], upass):  # Assuming password is the third column in Account
             return make_response({"message": "Login successful", "user": user}, 200)
         else:
             return make_response({"error": "Invalid credentials"}, 401)
     except Exception as e:
+        logging.error(f"Login error: {str(e)}")
         return make_response({'error': f'An error has occurred: {str(e)}'}, 400)
+    finally:
+        if connection is not None:
+            connection.close()
 
 @app.route('/add_Course', methods=['POST'])
 def create_Course():
@@ -170,6 +201,7 @@ def get_CourseMembers(course_code):
     except mysql.connector.Error as err:
         return jsonify({'error': f"An error has occurred: {err}"}), 500
 
+"""
 @app.route('/calendar-events', methods=['GET'])
 def get_CalendarEvents():
     try:
@@ -210,7 +242,7 @@ def create_CalendarEvents():
     finally:
         if connection is not None:
             connection.close()
-
+"""
 @app.route('/manage_forums', methods=['GET', 'POST'])
 def manage_Forums():
     connection = ServerConnection()

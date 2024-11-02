@@ -43,7 +43,7 @@ try:
     db = mysql.connector.connect(
         host="127.0.0.1",
         user="root",
-        password="TrissSQL9845",
+        password="Juniorb77ttriss",
         database="School_System"
     )
     cursor = db.cursor()

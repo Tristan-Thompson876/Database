@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div id="app">
+        <h1>School Management System</h1>
+
+        <!-- Registration Form -->
+        <div v-if="!isLoggedIn">
+            <h2>Register</h2>
+            <form @submit.prevent="registerUser">
+                <input type="text" v-model="username" placeholder="Username" required>
+                <input type="password" v-model="password" placeholder="Password" required>
+                <button type="submit">Register</button>
+            </form>
+            <br>
+
+            <h2>Login</h2>
+            <form @submit.prevent="loginUser">
+                <input type="text" v-model="username" placeholder="Username" required>
+                <input type="password" v-model="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- User Dashboard -->
+        <div v-if="isLoggedIn">
+            <h2>Welcome, {{username}}</h2>
+            <button @click="logout">Logout</button>
+
+            <h2>Add a Course</h2>
+            <form @submit.prevent="addCourse">
+                <input type="text" v-model="courseCode" placeholder="Course Code" required>
+                <input type="text" v-model="courseName" placeholder="Course Name" required>
+                <input type="date" v-model="startDate" required>
+                <input type="date" v-model="endDate" required>
+                <button type="submit">Add Course</button>
+            </form>
+
+           
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="appVue.js"></script>
+</body>
+</html>

@@ -4,14 +4,14 @@ from mysql.connector import Error
 db_config = {
     'host': '127.0.0.1',
     'user': 'root',
-    'password': 'TrissSQL9845'
+    'password': 'Juniorb77ttriss'
 }
 
 def create_database_and_tables():
     try:
         connection = mysql.connector.connect(**db_config)
         if connection.is_connected():
-            print("Connected to MySQL Server")
+            print("Connected to MySQL Server succesful")
 
             cursor = connection.cursor()
             cursor.execute("CREATE DATABASE IF NOT EXISTS School_System")

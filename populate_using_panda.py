@@ -19,7 +19,7 @@ students_df = pd.read_csv('students.csv')
 conn = mysql.connector.connect(
     host='localhost',
     user='root',
-    password='TrissSQL9845',
+    password='Juniorb77ttriss',
     database='School_System'
 )
 
