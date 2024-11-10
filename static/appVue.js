@@ -8,7 +8,6 @@ new Vue({
         courseName: '',
         startDate: '',
         endDate: '',
-        //events: []
     },
     methods: {
         async registerUser() {
@@ -26,7 +25,6 @@ new Vue({
             }
         },
         loginUser() {
-            // Simulate login success
             if (this.username && this.password) {
                 this.isLoggedIn = true;
             } else {
@@ -56,17 +54,10 @@ new Vue({
                 console.error('Error adding course:', error);
                 alert('Failed to add course. Please try again.');
             }
+        },
+        goToPage(page) {
+            alert(`Navigating to ${page}`);
         }
-        /*fetchEvents() {
-            fetch('http://127.0.0.1:4000/calendar-events')
-            .then(response => response.json())
-            .then(data => {
-                if (Array.isArray(data)) {
-                    this.events = data;
-                } else {
-                    alert(data.error);
-                }
-            });
-        }*/
     }
 });
+/** */
