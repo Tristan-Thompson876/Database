@@ -2,7 +2,7 @@ from flask import Flask, request, make_response, jsonify, render_template
 import mysql.connector
 from flask_cors import CORS
 from mysql.connector import Error
-from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 import logging
 
 app = Flask(__name__)
@@ -10,7 +10,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Setup logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 db_config = {
     'user': 'root',
@@ -69,32 +69,63 @@ def Register_User():
     finally:
         if connection is not None:
             connection.close()
-
-@app.route('/Userlogin', methods=['GET'])
+@app.route('/Userlogin', methods=['POST'])
 def User_Login():
     try:
-        uname = request.args.get('uname')
-        upass = request.args.get('password')
+        # Attempt to parse the JSON request
+        data = request.get_json()
 
+        if data is None:
+            return make_response({"error": "Invalid JSON data. Please send a valid JSON payload."}, 400)
+
+        uname = data.get('uname')
+        upass = data.get('password')
+
+        logging.debug(f"Received username: {uname}, password: {upass}")  # Debugging input
+
+        # Check if username or password is missing
+        if not uname or not upass:
+            return make_response({"error": "Username and password are required."}, 400)
+
+        # Simulating the database connection (make sure you have the connection set up properly)
         connection = ServerConnection()
         if connection is None:
             return make_response({"error": "Database connection failed"}, 500)
 
         cursor = connection.cursor()
+        
+        # Execute the query to fetch the user by username
         cursor.execute("SELECT * FROM Account WHERE Username=%s", (uname,))
+        
+        # Fetch the result and check if a user exists
         user = cursor.fetchone()
+        
+        # Ensure the cursor is properly closed and results are consumed
+        cursor.fetchall()  # Consume any remaining rows to avoid "Unread result found"
         cursor.close()
 
-        if user and check_password_hash(user[2], upass):  # Assuming password is the third column in Account
-            return make_response({"message": "Login successful", "user": user}, 200)
+        logging.debug(f"User fetched from database: {user}")  # Debugging query result
+
+        if not user:
+            return make_response({"error": "User not found"}, 404)
+
+        stored_password = user[2]  # Assuming user[2] is the password
+        logging.debug(f"Stored password: {stored_password}")
+
+        # Check if the entered password matches the stored password
+        if stored_password == upass:
+            return make_response({"message": "Login successful", "user": {"id": user[0], "username": user[1]}}, 200)
         else:
             return make_response({"error": "Invalid credentials"}, 401)
+
     except Exception as e:
         logging.error(f"Login error: {str(e)}")
         return make_response({'error': f'An error has occurred: {str(e)}'}, 400)
+
     finally:
         if connection is not None:
             connection.close()
+
 
 @app.route('/add_Course', methods=['POST'])
 def create_Course():
